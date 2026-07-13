@@ -154,7 +154,7 @@ body {
      2. The transition makes the move smooth when the page
         is resized or when the class is added/removed.
      ---------------------------------------------------------- */
-  transform: translateY(-95%);
+  transform: translateY(-25%);
   transition: transform .3s ease;
 }
 
