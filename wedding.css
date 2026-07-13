@@ -114,7 +114,7 @@ body {
   /* 1️⃣  Photo + dark overlay (helps white text stay readable) */
   background-image:
     linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .35)),
-    url("photos/photo2.jpeg");          /* ← path is relative to this CSS file */
+    url("photos/photo3.jpeg");          /* ← path is relative to this CSS file */
 
   /* 2️⃣  Make the image cover the whole hero area */
   background-size: cover;
