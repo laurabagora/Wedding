@@ -1,7 +1,44 @@
 /*=====================================================================
   Wedding website – shared stylesheet (mobile‑ready navigation)
 =====================================================================*/
+/* --------------------------------------------------------------
+   HERO – full‑width / full‑height background photo
+   -------------------------------------------------------------- */
+.hero {
+  /* 1️⃣  Background image (relative to the CSS file) */
+  background-image:
+    /* optional dark overlay – makes the white text readable   */
+    linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .35)),
+    url("photos/photo1.jpeg");   /* <-- adjust if the path differs */
 
+  /* 2️⃣  Make the image cover the whole hero area */
+  background-size: cover;          /* keep aspect ratio, fill container */
+  background-position: center;     /* centre the most important part */
+  background-repeat: no-repeat;
+
+  /* 3️⃣  Height – keep the hero tall enough, but you can set any min‑height */
+  min-height: 60vh;                /* change to 100vh if you want full‑screen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;                     /* white text on the dark overlay */
+
+  /* Optional – a subtle inner shadow that helps text stand out on bright photos */
+  box-shadow: inset 0 0 80px rgba(0,0,0,.15);
+}
+
+/* Keep the inner content centred and limited in width */
+.hero-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Small typographic tweak for very narrow screens (optional) */
+@media (max-width: 600px) {
+  .hero-title { font-size: 2rem; }
+}
 :root {
   /* Primary accent – used for buttons, links, highlights */
   --color-primary:   #AEDFF7;   /* soft sky‑blue */
@@ -150,51 +187,7 @@ body {
 }/* --------------------------------------------------------------
    HERO – full‑screen background image
    -------------------------------------------------------------- */
-.hero {
-  /* 1️⃣  The image – update the path if your folder name differs */
-  background-image:
-    /* optional dark overlay – makes white text easy to read   */
-    linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .35)),
-    url("photos/photo1.jpeg");   /* ← relative to the CSS file */
 
-  /* 2️⃣  Make the image fill the space */
-  background-size: cover;          /* stretch to cover, keep aspect ratio */
-  background-position: center;     /* centre the most important part */
-  background-repeat: no-repeat;
-
-  /* 3️⃣  Full‑screen height – you can use 100vh or keep a min‑height */
-  min-height: 100vh;               /* hero occupies the whole viewport */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-  color: #fff;                     /* white text on dark overlay */
-
-  /* Optional: a tiny inner‑shadow for extra contrast on very bright photos */
-  box-shadow: inset 0 0 80px rgba(0,0,0,.15);
-}
-
-/* Keep the hero‑text centered on mobile, left‑aligned on larger screens */
-.hero-content {
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-/* If you want the headline to shrink a bit on small screens */
-@media (max-width: 600px) {
-  .hero-title { font-size: 2rem; }
-}
-
-/* Two‑column layout (used on the Details page) */
-.two-column {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-.two-column > div {
-  flex: 1 1 300px;
-}
 
 /* Card grid (used for quick‑link cards, party cards, etc.) */
 .card-grid {
