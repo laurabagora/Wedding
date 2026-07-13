@@ -117,7 +117,7 @@ body {
   /* photo + dark overlay (keep what you already have) */
   background-image:
     linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
-    url("photos/photo1.jpeg");
+    url("photos/test2.png");
 
   background-size: cover;
   background-repeat: no-repeat;
