@@ -143,6 +143,30 @@ body {
   .hero-title { font-size: 2rem; }
 }
 
+.hero-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+
+  /* ---------------------------------------------------------
+     The magic – shift the whole block upward.
+     1. translateY(‑15%) moves it 15 % of its own height up.
+        Adjust the value until the faces are clear.
+     2. The transition makes the move smooth when the page
+        is resized or when the class is added/removed.
+     ---------------------------------------------------------- */
+  transform: translateY(-15%);
+  transition: transform .3s ease;
+}
+
+/* --------------------------------------------------------------
+   Small screens – keep the text vertically centered
+   -------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .hero-content {
+    transform: none;            /* no upward shift on phones */
+  }
+}
+
 /* -----------------------------------------------------------------
    6️⃣  Sections & Layout
 ----------------------------------------------------------------- */
