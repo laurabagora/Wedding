@@ -44,20 +44,17 @@
   </div>
 </header>
   
-  <!-- ==== Welcome / intro ==== -->
-  <main class="section section-alt">
-    <div class="section-inner">
-      <h2>Welcome!</h2>
-      <p>
-        Thank you for visiting our wedding website! Here you’ll find all the
-        details you need to celebrate with us, from the ceremony schedule to travel
-        suggestions and our registry.
-      </p>
-      
-      <!-- Optional countdown -->
-      <div id="countdown" style="font-size:1.2rem; margin-top:1rem;"></div>
-    </div>
-  </main>
+<div class="welcome-section">
+  <p>
+    Thank you for visiting our wedding website! Here you’ll find all the details you need to celebrate with us, from the ceremony schedule to travel suggestions and our registry.
+  </p>
+
+  <!-- Countdown display -->
+  <div id="countdown" style="font-size:1.2rem; margin: 1rem 0;"></div>
+
+  <!-- RSVP button -->
+  <a href="rsvp.html" class="btn-primary">RSVP Now</a>
+</div>
 
   <!-- ==== Quick‑link cards ==== -->
   <section class="section">
@@ -78,11 +75,6 @@
           <p>Getting there, where to stay, and local tips.</p>
           <a href="travel.html" class="btn-primary">Plan Your Trip</a>
         </article>
-        <article class="card">
-          <h3>RSVP</h3>
-          <p>Let us know if you can join the celebration.</p>
-          <a href="rsvp.html" class="btn-primary">RSVP Now</a>
-        </article>
       </div>
     </div>
   </section>
@@ -94,46 +86,52 @@
 
   <!-- Optional simple countdown script -->
   <script>
-    const target = new Date('2026-06-19T16:00:00'); // adjust time zone if needed
-    const countdownEl = document.getElementById('countdown');
+  // Set your wedding date here (hours in 24-hr format, local time)
+  const weddingDate = new Date('2026-06-19T16:00:00');
 
-    function updateCountdown() {
-      const now = new Date();
-      const diff = target - now;
-      if (diff <= 0) {
-        countdownEl.textContent = 'The big day is here! 🎉';
-        clearInterval(timer);
-        return;
+  const countdownEl = document.getElementById('countdown');
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+      countdownEl.textContent = 'The big day is here! 🎉';
+      clearInterval(timer);
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s until the wedding`;
+  }
+
+  // Update every second
+  updateCountdown();
+  const timer = setInterval(updateCountdown, 1000);
+
+  // Grab the toggle button and the nav list
+  const navToggle = document.querySelector('.nav-toggle');
+  const navList   = document.getElementById('primary-nav');
+
+  if (navToggle && navList) {
+      navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+      navToggle.setAttribute('aria-expanded', !expanded);
+      navList.classList.toggle('show');
+      });
+
+      // Close the menu when a link is clicked (useful on single‑page anchors)
+      navList.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+          navList.classList.remove('show');
+          navToggle.setAttribute('aria-expanded', 'false');
       }
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hrs  = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const mins = Math.floor((diff / (1000 * 60)) % 60);
-      const secs = Math.floor((diff / 1000) % 60);
-      countdownEl.textContent = `${days}d ${hrs}h ${mins}m ${secs}s until the wedding`;
-    }
-
-    const timer = setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    // Grab the toggle button and the nav list
-    const navToggle = document.querySelector('.nav-toggle');
-    const navList   = document.getElementById('primary-nav');
-
-    if (navToggle && navList) {
-        navToggle.addEventListener('click', () => {
-        const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-        navToggle.setAttribute('aria-expanded', !expanded);
-        navList.classList.toggle('show');
-        });
-
-        // Close the menu when a link is clicked (useful on single‑page anchors)
-        navList.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-            navList.classList.remove('show');
-            navToggle.setAttribute('aria-expanded', 'false');
-        }
-        });
-    }
-  </script>
+      });
+  }
+</script>
 </body>
 </html>
