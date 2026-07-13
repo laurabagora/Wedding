@@ -2,27 +2,6 @@
   Wedding website – shared stylesheet (mobile‑ready navigation)
 =====================================================================*/
 
-/* -----------------------------------------------------------------
-   HERO – background uses the secondary → primary gradient
-   ----------------------------------------------------------------- */
-   .hero {
-    /* Gradient from navy (secondary) to soft sky‑blue (primary) */
-    background: linear-gradient(
-      135deg,
-      rgba(var(--color-secondary-rgb), .9),
-      rgba(var(--color-primary-rgb), .85)
-    );
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    text-align: center;
-    color: #ffffff;                 /* keep white text for contrast */
-  }
-  
-
-
 :root {
   /* Primary accent – used for buttons, links, highlights */
   --color-primary:   #AEDFF7;   /* soft sky‑blue */
