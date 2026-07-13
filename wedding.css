@@ -128,7 +128,7 @@ body {
   background-position: 50% 30%;
 
   /* keep the rest of your hero rules */
-  min-height: 50vh;               /* or whatever height you like */
+  min-height: 70vh;               /* or whatever height you like */
   display: flex;
   align-items: center;
   justify-content: center;
