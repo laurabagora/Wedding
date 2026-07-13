@@ -1,0 +1,376 @@
+/*=====================================================================
+  Wedding website – shared stylesheet (mobile‑ready navigation)
+=====================================================================*/
+
+/* -----------------------------------------------------------------
+   HERO – background uses the secondary → primary gradient
+   ----------------------------------------------------------------- */
+   .hero {
+    /* Gradient from navy (secondary) to soft sky‑blue (primary) */
+    background: linear-gradient(
+      135deg,
+      rgba(var(--color-secondary-rgb), .9),
+      rgba(var(--color-primary-rgb), .85)
+    );
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    color: #ffffff;                 /* keep white text for contrast */
+  }
+  
+
+
+:root {
+  /* Primary accent – used for buttons, links, highlights */
+  --color-primary:   #AEDFF7;   /* soft sky‑blue */
+
+  /* Secondary – headings, navigation links */
+  --color-secondary: #003366;   /* deep navy (good contrast on blue) */
+
+  /* Background colours */
+  --color-bg:        #F7FCFF;   /* very pale blue‑gray – main page background */
+  --color-bg-alt:    #E0F2FF;   /* a touch darker for .section‑alt */
+
+  /* Supporting accent (used in a few places, e.g., timeline bullets) */
+  --color-accent:    #A7C7E7;   /* baby‑blue – keep if you like it */
+
+  /* Text colours */
+  --color-text:      #222222;   /* main body text */
+  --color-muted:     #777777;   /* secondary / muted text */
+
+  /* Typography (keep your existing fonts) */
+  --font-body:    system-ui, -apple-system, BlinkMacSystemFont,
+                  "Segoe UI", sans-serif;
+  --font-heading: "Georgia", "Times New Roman", serif;
+
+  /* Layout helper */
+  --max-width: 900px;
+}
+
+/* --------------------------------------------------------------
+   (Optional) If you ever want a gray theme, replace the block above
+   with the values below and re‑save the file – no other changes needed.
+-------------------------------------------------------------- */
+/*
+:root {
+  --color-primary:   #8A9A9A;   // muted steel (gray accent)
+  --color-secondary: #333333;   // dark gray headings
+  --color-bg:        #F5F5F5;   // light gray page background
+  --color-bg-alt:    #E0E0E0;   // slightly darker alt sections
+  --color-accent:    #B0B0B0;   // subtle gray accent
+  --color-text:      #222222;
+  --color-muted:     #777777;
+}
+*/
+
+
+
+/* --------------------------------------------------------------
+   2️⃣  Keep the rest of your stylesheet unchanged.
+   The variables above will flow through all existing rules.
+   -------------------------------------------------------------- */
+
+/* --------------------------- 2. Base reset --------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* --------------------------- 3. Utilities --------------------------- */
+.visually-hidden,
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; border: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+/* --------------------------- 4. Navigation --------------------------- */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 2px solid var(--color-accent);
+  position: relative;               /* for the absolute‑positioned dropdown */
+}
+
+/* Logo */
+.logo {
+  font-family: var(--font-heading);
+  color: var(--color-secondary);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Nav links – horizontal on desktop */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.nav-links a:hover { color: var(--color-primary); }
+
+/* Hamburger button – hidden on larger screens */
+.nav-toggle {
+  display: none;                     /* becomes visible in the media query */
+  background: none;
+  border: none;
+  font-size: 1.8rem;                /* size of the ☰ icon */
+  cursor: pointer;
+  color: var(--color-secondary);
+}
+.nav-toggle:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* --------------------------- 5. Hero / Banner --------------------------- */
+/* -----------------------------------------------------------------
+   HERO SECTION – photo + text layout
+   ----------------------------------------------------------------- */
+
+/* Keep the original gradient background (no photo behind the text) */
+.hero {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 51, 102, .9),
+    rgba(163, 177, 138, .85)
+  );
+}
+
+/* Flex container for picture + text */
+.hero-content {
+  display: flex;
+  flex-direction: column;            /* stack on tiny screens */
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  gap: 2rem;                         /* space between image & text */
+  padding: 2rem;                     /* give a little breathing room */
+}
+
+/* The picture itself */
+.hero-photo img {
+  max-width: 260px;                  /* limit width on phones  */
+  height: auto;
+  border-radius: 50%;                /* circular portrait – change if you wish */
+  margin-bottom: 1rem;
+}
+
+/* Text block – keep existing styles */
+.hero-text {
+  text-align: center;
+}
+
+/* Small readability tweak – a faint text‑shadow works on both dark & light
+   backgrounds without being visually noisy. */
+.hero .hero-tagline,
+.hero .hero-title,
+.hero .hero-date {
+  text-shadow: 0 1px 3px rgba(0,0,0,.4);
+}
+
+/* ---- Responsive: picture beside text on larger screens ---- */
+@media (min-width: 768px) {
+  .hero-content {
+    flex-direction: row;            /* side‑by‑side layout */
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .hero-photo img {
+    max-width: 320px;               /* a bit larger on tablets & desktop */
+    margin-bottom: 0;
+  }
+
+  .hero-text { text-align: left; }
+}
+
+/* -----------------------------------------------------------------
+   OPTIONAL: if you later want a full‑width background image instead
+   of the gradient, just uncomment the block below and point the URL
+   at your hero picture.
+   ----------------------------------------------------------------- */
+/*
+.hero {
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(0, 51, 102, .9),
+      rgba(163, 177, 138, .85)
+    ),
+    url("photos/photo1.jpeg");   // use the same image or a larger version
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
+/* --------------------------- 6. Sections & Layout --------------------------- */
+.section { padding: 3rem 1.5rem; background-color: var(--color-bg); }
+.section-alt { background-color: var(--color-bg-alt); }
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.section h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  text-align: center;
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Two‑column layout (used on the Details page) */
+.two-column {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.two-column > div {
+  flex: 1 1 300px;
+}
+
+/* Card grid (used for quick‑link cards, party cards, etc.) */
+.card-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.card {
+  background: #fff;
+  border-radius: .5rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.07);
+}
+
+/* Timeline inside ceremony card */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+.timeline li {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: .5rem;
+}
+.timeline li span {
+  display: inline-block;
+  width: 4rem;
+  font-weight: 600;
+}
+
+/* Generic list styling */
+.list { list-style: disc inside; margin: .5rem 0; }
+
+/* --------------------------- 7. Buttons --------------------------- */
+.btn-primary {
+  display: inline-block;
+  padding: .75rem 1.5rem;
+  background-color: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  border: none;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+.btn-primary:hover { background-color: #8f9f75; }
+
+/* --------------------------- 8. RSVP Form --------------------------- */
+.rsvp-form {
+  max-width: 500px;
+  margin: 2rem auto 0;
+  display: grid;
+  gap: 1.2rem;
+}
+.form-row { display: flex; flex-direction: column; }
+.form-row label { margin-bottom: .3rem; font-weight: 600; }
+.form-row input,
+.form-row select,
+.form-row textarea {
+  padding: .6rem .8rem;
+  border: 1px solid #ccc;
+  border-radius: .3rem;
+  font: inherit;
+}
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+/* --------------------------- 9. Footer --------------------------- */
+.footer {
+  background: var(--color-secondary);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: .9rem;
+}
+
+/* --------------------------- 10. Mobile navigation --------------------------- */
+@media (max-width: 900px) {
+  /* Hamburger becomes visible */
+  .nav-toggle { display: block; }
+
+  /* Collapse the nav list */
+  .nav-links {
+    flex-direction: column;
+    gap: .5rem;
+    background: #fff;
+    position: absolute;
+    top: 100%;               /* just below the .nav bar */
+    left: 0; right: 0;
+    padding: .8rem 1rem;
+    border-bottom: 2px solid var(--color-accent);
+    display: none;           /* hidden by default */
+    z-index: 1000;
+  }
+  /* When JS adds .show, reveal the menu */
+  .nav-links.show { display: flex; }
+
+  /* Reduce hero text size a bit */
+  .hero-title { font-size: 2rem; }
+  .hero-date,
+  .hero-tagline { font-size: 1rem; }
+
+  /* Stack two‑column layout vertically */
+  .two-column { flex-direction: column; }
+}
+
+/* --------------------------------------------------------------
+   Print – keep only essential info
+   -------------------------------------------------------------- */
+@media print {
+  .nav, .footer, .btn-primary { display: none; }
+  .hero { background: none; color: #000; }
+}
+

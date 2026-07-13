@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Laura &amp; Nathan — Wedding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="wedding.css" />
+</head>
+
+<body>
+  <!-- ==== Navigation ==== -->
+  <nav class="nav">
+    <div class="logo">Our Wedding</div>
+  
+    <!-- Hamburger button – hidden on larger screens -->
+    <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+      ☰
+      <span class="visually-hidden">Menu</span>
+    </button>
+  
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="travel.html">Travel</a></li>
+      <li><a href="details.html">Details</a></li>
+      <li><a href="party.html">Party</a></li>
+      <li><a href="registry.html">Registry</a></li>
+      <li><a href="rsvp.html">RSVP</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="home" role="banner">
+    <div class="hero-content">
+  
+      <!-- Photo of the couple -->
+      <picture class="hero-photo">
+        <!-- Optional WebP version (more efficient) -->
+        <source srcset="photos/photo1.webp" type="image/webp">
+        <!-- Fallback JPEG -->
+        <img src="photos/photo1.jpeg"
+             alt="Laura and Nathan smiling together"
+             loading="lazy"
+             width="800" height="800"
+             style="display:block; width:100%; height:auto;">
+      </picture>
+  
+      <!-- Text that sits beside / below the photo -->
+      <div class="hero-text">
+        <p class="hero-tagline">We’re getting married!</p>
+        <h1 class="hero-title">Laura Guerrero &amp; Nathan Catanach</h1>
+        <p class="hero-date">June 19, 2026 • Melbourne, Florida</p>
+        <a href="events.html" class="btn-primary">View Wedding Day Schedule</a>
+      </div>
+  
+    </div>
+  </header>
+
+  <!-- ==== Welcome / intro ==== -->
+  <main class="section section-alt">
+    <div class="section-inner">
+      <h2>Welcome!</h2>
+      <p>
+        Thank you for visiting our wedding website! Here you’ll find all the
+        details you need to celebrate with us, from the ceremony schedule to travel
+        suggestions and our registry.
+      </p>
+
+      <!-- Optional countdown -->
+      <div id="countdown" style="font-size:1.2rem; margin-top:1rem;"></div>
+    </div>
+  </main>
+
+  <!-- ==== Quick‑link cards ==== -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="card-grid">
+        <article class="card">
+          <h3>Our Story</h3>
+          <p>How we met, fell in love, and got engaged.</p>
+          <a href="story.html" class="btn-primary">Read More</a>
+        </article>
+        <article class="card">
+          <h3>Schedule</h3>
+          <p>Ceremony, cocktail hour, reception, and more.</p>
+          <a href="events.html" class="btn-primary">View Schedule</a>
+        </article>
+        <article class="card">
+          <h3>Travel</h3>
+          <p>Getting there, where to stay, and local tips.</p>
+          <a href="travel.html" class="btn-primary">Plan Your Trip</a>
+        </article>
+        <article class="card">
+          <h3>RSVP</h3>
+          <p>Let us know if you can join the celebration.</p>
+          <a href="rsvp.html" class="btn-primary">RSVP Now</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==== Footer ==== -->
+  <footer class="footer">
+    <p>2026 Laura Guerrero &amp; Nathan Catanach. All rights reserved.</p>
+  </footer>
+
+  <!-- Optional simple countdown script -->
+  <script>
+    const target = new Date('2026-06-19T16:00:00'); // adjust time zone if needed
+    const countdownEl = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = target - now;
+      if (diff <= 0) {
+        countdownEl.textContent = 'The big day is here! 🎉';
+        clearInterval(timer);
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hrs  = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+      countdownEl.textContent = `${days}d ${hrs}h ${mins}m ${secs}s until the wedding`;
+    }
+
+    const timer = setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Grab the toggle button and the nav list
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList   = document.getElementById('primary-nav');
+
+    if (navToggle && navList) {
+        navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+        navToggle.setAttribute('aria-expanded', !expanded);
+        navList.classList.toggle('show');
+        });
+
+        // Close the menu when a link is clicked (useful on single‑page anchors)
+        navList.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            navList.classList.remove('show');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+        });
+    }
+  </script>
+</body>
+</html>
