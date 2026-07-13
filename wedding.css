@@ -344,3 +344,18 @@ body {
   .nav, .footer, .btn-primary { display: none; }
   .hero { background: none; color: #000; }
 }
+
+.welcome-section {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.welcome-section p {
+  margin-bottom: 1rem;
+}
+
+.welcome-section a.btn-primary {
+  margin-top: 1rem;
+  display: inline-block;
+}
