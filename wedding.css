@@ -152,81 +152,6 @@ body {
    HERO SECTION – photo + text layout
    ----------------------------------------------------------------- */
 
-/* Keep the original gradient background (no photo behind the text) */
-.hero {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 51, 102, .9),
-    rgba(163, 177, 138, .85)
-  );
-}
-
-/* Flex container for picture + text */
-.hero-content {
-  display: flex;
-  flex-direction: column;            /* stack on tiny screens */
-  align-items: center;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  gap: 2rem;                         /* space between image & text */
-  padding: 2rem;                     /* give a little breathing room */
-}
-
-/* The picture itself */
-.hero-photo img {
-  max-width: 260px;                  /* limit width on phones  */
-  height: auto;
-  border-radius: 50%;                /* circular portrait – change if you wish */
-  margin-bottom: 1rem;
-}
-
-/* Text block – keep existing styles */
-.hero-text {
-  text-align: center;
-}
-
-/* Small readability tweak – a faint text‑shadow works on both dark & light
-   backgrounds without being visually noisy. */
-.hero .hero-tagline,
-.hero .hero-title,
-.hero .hero-date {
-  text-shadow: 0 1px 3px rgba(0,0,0,.4);
-}
-
-/* ---- Responsive: picture beside text on larger screens ---- */
-@media (min-width: 768px) {
-  .hero-content {
-    flex-direction: row;            /* side‑by‑side layout */
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .hero-photo img {
-    max-width: 320px;               /* a bit larger on tablets & desktop */
-    margin-bottom: 0;
-  }
-
-  .hero-text { text-align: left; }
-}
-
-/* -----------------------------------------------------------------
-   OPTIONAL: if you later want a full‑width background image instead
-   of the gradient, just uncomment the block below and point the URL
-   at your hero picture.
-   ----------------------------------------------------------------- */
-/*
-.hero {
-  background-image:
-    linear-gradient(
-      135deg,
-      rgba(0, 51, 102, .9),
-      rgba(163, 177, 138, .85)
-    ),
-    url("photos/photo1.jpeg");   // use the same image or a larger version
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
 
 
@@ -243,6 +168,43 @@ body {
   text-align: center;
   color: var(--color-secondary);
   margin-bottom: 2rem;
+}/* --------------------------------------------------------------
+   HERO – full‑screen background image
+   -------------------------------------------------------------- */
+.hero {
+  /* 1️⃣  The image – update the path if your folder name differs */
+  background-image:
+    /* optional dark overlay – makes white text easy to read   */
+    linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .35)),
+    url("photos/photo1.jpeg");   /* ← relative to the CSS file */
+
+  /* 2️⃣  Make the image fill the space */
+  background-size: cover;          /* stretch to cover, keep aspect ratio */
+  background-position: center;     /* centre the most important part */
+  background-repeat: no-repeat;
+
+  /* 3️⃣  Full‑screen height – you can use 100vh or keep a min‑height */
+  min-height: 100vh;               /* hero occupies the whole viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;                     /* white text on dark overlay */
+
+  /* Optional: a tiny inner‑shadow for extra contrast on very bright photos */
+  box-shadow: inset 0 0 80px rgba(0,0,0,.15);
+}
+
+/* Keep the hero‑text centered on mobile, left‑aligned on larger screens */
+.hero-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* If you want the headline to shrink a bit on small screens */
+@media (max-width: 600px) {
+  .hero-title { font-size: 2rem; }
 }
 
 /* Two‑column layout (used on the Details page) */
