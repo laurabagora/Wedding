@@ -125,7 +125,7 @@ body {
   /* ==== NEW ==== */
   /* 50% = horizontal centre, 30% = 30 % from the top of the image */
   /* change the second value until the faces are where you want them */
-  background-position: 50% 70%;
+  background-position: 20% 50%;
 
   /* keep the rest of your hero rules */
   min-height: 50vh;               /* or whatever height you like */
