@@ -107,53 +107,105 @@ body {
   outline-offset: 2px;
 }
 
-/* -----------------------------------------------------------------
-   5️⃣  Hero / Header (background photo)
------------------------------------------------------------------ */
-/* --------------------------------------------------------------
-   HERO – background photo with an adjustable focal point
-   -------------------------------------------------------------- */
 .hero {
-  /* photo + dark overlay (keep what you already have) */
-  background-image:
-    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
-    url("photos/test2.png");
-
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  /* ==== NEW ==== */
-  /* 50% = horizontal centre, 30% = 30 % from the top of the image */
-  /* change the second value until the faces are where you want them */
-  background-position: 20% 50%;
-
-  /* keep the rest of your hero rules */
-  min-height: 50vh;               /* or whatever height you like */
+  background-color: #0b2647;  /* dark navy blue */
+  min-height: 60vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-  color: #fff;
-  box-shadow: inset 0 0 80px rgba(0,0,0,.15);
+  padding: 2rem 4rem;
+  color: #ffffff;
 }
-/* inner container – keeps the text from stretching too wide */
+
 .hero-content {
-  max-width: var(--max-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
   margin: 0 auto;
+  width: 100%;
 }
 
-/* Smaller title on very narrow screens (optional) */
-@media (max-width: 600px) {
-  .hero-title { font-size: 2rem; }
+/* Text block on the left */
+.hero-text {
+  flex: 1;
+  max-width: 50%;
+  text-align: left;
 }
 
-/* --------------------------------------------------------------
-   Small screens – keep the text vertically centered
-   -------------------------------------------------------------- */
-@media (max-width: 600px) {
+.hero-tagline {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.hero-date {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Primary button */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-primary, #AEDFF7);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: #8db7d7;
+}
+
+/* Photo container on the right */
+.hero-photo-wrapper {
+  flex: 1;
+  max-width: 45%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-photo-wrapper img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;  /* circle */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  border: 5px solid #0b2647; /* optional: navy border to blend with bg */
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
   .hero-content {
-    transform: none;            /* no upward shift on phones */
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .hero-text, .hero-photo-wrapper {
+    max-width: 100%;
+    text-align: center;
+  }
+  .hero-photo-wrapper img {
+    width: 240px;
+    height: 240px;
+    border: 4px solid #0b2647;
+  }
+}
+@media (max-width: 600px) {
+  .hero-photo-wrapper img {
+    width: 180px;
+    height: 180px;
+    border: 3px solid #0b2647;
   }
 }
 
