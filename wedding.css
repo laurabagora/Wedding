@@ -1,44 +1,6 @@
 /*=====================================================================
   Wedding website – shared stylesheet (mobile‑ready navigation)
 =====================================================================*/
-/* --------------------------------------------------------------
-   HERO – full‑width / full‑height background photo
-   -------------------------------------------------------------- */
-.hero {
-  /* 1️⃣  Background image (relative to the CSS file) */
-  background-image:
-    /* optional dark overlay – makes the white text readable   */
-    linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .35)),
-    url("photos/photo1.jpeg");   /* <-- adjust if the path differs */
-
-  /* 2️⃣  Make the image cover the whole hero area */
-  background-size: cover;          /* keep aspect ratio, fill container */
-  background-position: center;     /* centre the most important part */
-  background-repeat: no-repeat;
-
-  /* 3️⃣  Height – keep the hero tall enough, but you can set any min‑height */
-  min-height: 60vh;                /* change to 100vh if you want full‑screen */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-  color: #fff;                     /* white text on the dark overlay */
-
-  /* Optional – a subtle inner shadow that helps text stand out on bright photos */
-  box-shadow: inset 0 0 80px rgba(0,0,0,.15);
-}
-
-/* Keep the inner content centred and limited in width */
-.hero-content {
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-/* Small typographic tweak for very narrow screens (optional) */
-@media (max-width: 600px) {
-  .hero-title { font-size: 2rem; }
-}
 :root {
   /* Primary accent – used for buttons, links, highlights */
   --color-primary:   #AEDFF7;   /* soft sky‑blue */
@@ -57,7 +19,7 @@
   --color-text:      #222222;   /* main body text */
   --color-muted:     #777777;   /* secondary / muted text */
 
-  /* Typography (keep your existing fonts) */
+  /* Typography */
   --font-body:    system-ui, -apple-system, BlinkMacSystemFont,
                   "Segoe UI", sans-serif;
   --font-heading: "Georgia", "Times New Roman", serif;
@@ -66,32 +28,10 @@
   --max-width: 900px;
 }
 
-/* --------------------------------------------------------------
-   (Optional) If you ever want a gray theme, replace the block above
-   with the values below and re‑save the file – no other changes needed.
--------------------------------------------------------------- */
-/*
-:root {
-  --color-primary:   #8A9A9A;   // muted steel (gray accent)
-  --color-secondary: #333333;   // dark gray headings
-  --color-bg:        #F5F5F5;   // light gray page background
-  --color-bg-alt:    #E0E0E0;   // slightly darker alt sections
-  --color-accent:    #B0B0B0;   // subtle gray accent
-  --color-text:      #222222;
-  --color-muted:     #777777;
-}
-*/
-
-
-
-/* --------------------------------------------------------------
-   2️⃣  Keep the rest of your stylesheet unchanged.
-   The variables above will flow through all existing rules.
-   -------------------------------------------------------------- */
-
-/* --------------------------- 2. Base reset --------------------------- */
+/* -----------------------------------------------------------------
+   2️⃣  Base reset
+----------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -102,7 +42,9 @@ body {
   line-height: 1.6;
 }
 
-/* --------------------------- 3. Utilities --------------------------- */
+/* -----------------------------------------------------------------
+   3️⃣  Utilities
+----------------------------------------------------------------- */
 .visually-hidden,
 .sr-only {
   position: absolute !important;
@@ -113,7 +55,9 @@ body {
   white-space: nowrap;
 }
 
-/* --------------------------- 4. Navigation --------------------------- */
+/* -----------------------------------------------------------------
+   4️⃣  Navigation
+----------------------------------------------------------------- */
 .nav {
   display: flex;
   align-items: center;
@@ -151,10 +95,10 @@ body {
 
 /* Hamburger button – hidden on larger screens */
 .nav-toggle {
-  display: none;                     /* becomes visible in the media query */
+  display: none;               /* becomes visible in the media query */
   background: none;
   border: none;
-  font-size: 1.8rem;                /* size of the ☰ icon */
+  font-size: 1.8rem;           /* size of the ☰ icon */
   cursor: pointer;
   color: var(--color-secondary);
 }
@@ -163,15 +107,45 @@ body {
   outline-offset: 2px;
 }
 
-/* --------------------------- 5. Hero / Banner --------------------------- */
 /* -----------------------------------------------------------------
-   HERO SECTION – photo + text layout
-   ----------------------------------------------------------------- */
+   5️⃣  Hero / Header (background photo)
+----------------------------------------------------------------- */
+.hero {
+  /* 1️⃣  Photo + dark overlay (helps white text stay readable) */
+  background-image:
+    linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .35)),
+    url("photos/photo1.jpeg");          /* ← path is relative to this CSS file */
 
+  /* 2️⃣  Make the image cover the whole hero area */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
+  /* 3️⃣  Height – change to 60vh if you don’t want full‑screen */
+  min-height: 100vh;                     /* full‑viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;                           /* white text on overlay */
+  box-shadow: inset 0 0 80px rgba(0,0,0,.15);   /* subtle inner‑shadow */
+}
 
+/* inner container – keeps the text from stretching too wide */
+.hero-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
 
-/* --------------------------- 6. Sections & Layout --------------------------- */
+/* Smaller title on very narrow screens (optional) */
+@media (max-width: 600px) {
+  .hero-title { font-size: 2rem; }
+}
+
+/* -----------------------------------------------------------------
+   6️⃣  Sections & Layout
+----------------------------------------------------------------- */
 .section { padding: 3rem 1.5rem; background-color: var(--color-bg); }
 .section-alt { background-color: var(--color-bg-alt); }
 .section-inner {
@@ -184,12 +158,17 @@ body {
   text-align: center;
   color: var(--color-secondary);
   margin-bottom: 2rem;
-}/* --------------------------------------------------------------
-   HERO – full‑screen background image
-   -------------------------------------------------------------- */
+}
 
+/* Two‑column layout (used on the Details page) */
+.two-column {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.two-column > div { flex: 1 1 300px; }
 
-/* Card grid (used for quick‑link cards, party cards, etc.) */
+/* Card grid (quick‑link cards, party cards, etc.) */
 .card-grid {
   display: grid;
   gap: 2rem;
@@ -222,7 +201,9 @@ body {
 /* Generic list styling */
 .list { list-style: disc inside; margin: .5rem 0; }
 
-/* --------------------------- 7. Buttons --------------------------- */
+/* -----------------------------------------------------------------
+   7️⃣  Buttons
+----------------------------------------------------------------- */
 .btn-primary {
   display: inline-block;
   padding: .75rem 1.5rem;
@@ -238,7 +219,9 @@ body {
 }
 .btn-primary:hover { background-color: #8f9f75; }
 
-/* --------------------------- 8. RSVP Form --------------------------- */
+/* -----------------------------------------------------------------
+   8️⃣  RSVP Form
+----------------------------------------------------------------- */
 .rsvp-form {
   max-width: 500px;
   margin: 2rem auto 0;
@@ -261,7 +244,9 @@ body {
   outline: 2px solid var(--color-primary);
 }
 
-/* --------------------------- 9. Footer --------------------------- */
+/* -----------------------------------------------------------------
+   9️⃣  Footer
+----------------------------------------------------------------- */
 .footer {
   background: var(--color-secondary);
   color: #fff;
@@ -270,9 +255,11 @@ body {
   font-size: .9rem;
 }
 
-/* --------------------------- 10. Mobile navigation --------------------------- */
+/* -----------------------------------------------------------------
+   🔟  Mobile navigation
+----------------------------------------------------------------- */
 @media (max-width: 900px) {
-  /* Hamburger becomes visible */
+  /* Show hamburger */
   .nav-toggle { display: block; }
 
   /* Collapse the nav list */
@@ -281,17 +268,15 @@ body {
     gap: .5rem;
     background: #fff;
     position: absolute;
-    top: 100%;               /* just below the .nav bar */
-    left: 0; right: 0;
+    top: 100%; left: 0; right: 0;
     padding: .8rem 1rem;
     border-bottom: 2px solid var(--color-accent);
-    display: none;           /* hidden by default */
+    display: none;               /* hidden until JS toggles .show */
     z-index: 1000;
   }
-  /* When JS adds .show, reveal the menu */
-  .nav-links.show { display: flex; }
+  .nav-links.show { display: flex; }   /* JS adds .show */
 
-  /* Reduce hero text size a bit */
+  /* Slightly smaller hero text on small screens */
   .hero-title { font-size: 2rem; }
   .hero-date,
   .hero-tagline { font-size: 1rem; }
@@ -300,11 +285,10 @@ body {
   .two-column { flex-direction: column; }
 }
 
-/* --------------------------------------------------------------
-   Print – keep only essential info
-   -------------------------------------------------------------- */
+/* -----------------------------------------------------------------
+   🖨️  Print – keep only essential info
+----------------------------------------------------------------- */
 @media print {
   .nav, .footer, .btn-primary { display: none; }
   .hero { background: none; color: #000; }
 }
-
