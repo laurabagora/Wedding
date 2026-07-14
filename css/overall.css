@@ -1,9 +1,6 @@
-/* ────────────────────── base.css ────────────────────── */
-
-/* ---------- Custom properties (variables) ---------- */
 :root {
-  --color-primary:       #A3B18A;   /* sage */
-  --color-primary-hov:   #8F9F75;   /* hover */
+  --color-primary:       #A3B18A; 
+  --color-primary-hov:   #8F9F75; 
   --color-dark:          #5F6F52;
   --color-blue:          #003366;
   --color-bg:            #F7FCFF;
@@ -18,23 +15,26 @@
   --max-width: 900px;
 }
 
-/* ---------- Simple reset / box‑sizing ---------- */
-*,*::before,*::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+*,*::before,*::after { 
+  box-sizing: border-box; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
-  display: flex;               /* page becomes a column flex container */
+  display: flex;            
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* ---------- Utility helpers ---------- */
-.visually-hidden,
-.sr-only {
+.visually-hidden, .sr-only {
   position: absolute !important;
   width: 1px; height: 1px;
   padding: 0; border: 0;
@@ -43,9 +43,6 @@ body {
   white-space: nowrap;
 }
 
-/* ────────────────────── layout.css ────────────────────── */
-
-/* Section wrapper (used on every page) */
 .section {
   padding: 3rem 1.5rem;
   background: var(--color-bg);
@@ -55,40 +52,36 @@ body {
   margin: 0 auto;
 }
 
-/* Simple two‑column helper (used on many sub‑pages) */
 .two-column {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
 }
-.two-column > div { flex: 1 1 300px; }
 
-/* Card grid – used on the home page and also on “party”, “registry”, etc. */
+.two-column > div { 
+  flex: 1 1 300px; 
+}
+
 .card-grid {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-/* Footer – sits at the bottom because body is a flex column */
 .footer {
   background: var(--color-blue);
   color: #fff;
   text-align: center;
   padding: 1rem;
   font-size: .9rem;
-  margin-top: auto;   /* pushes it down */
+  margin-top: auto;  
 }
 
-/* Print optimisation – hide navigation & footers when printing */
 @media print {
   .nav, .footer, .btn-primary { display: none; }
   .hero { background: none; color: #000; }
 }
 
-/* ────────────────────── components.css ────────────────────── */
-
-/* ---------- Navigation ---------- */
 .nav {
   display: flex;
   align-items: center;
@@ -98,12 +91,14 @@ body {
   border-bottom: 2px solid var(--color-accent);
   position: relative;
 }
+
 .logo a {
   font-family: var(--font-heading);
   color: var(--color-blue);
   text-transform: uppercase;
   text-decoration: none;
 }
+
 .logo a:hover { color: var(--color-primary); }
 
 .nav-links {
@@ -113,6 +108,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .nav-links a {
   color: var(--color-blue);
   text-decoration: none;
@@ -120,7 +116,10 @@ body {
   text-transform: uppercase;
   letter-spacing: .08em;
 }
-.nav-links a:hover { color: var(--color-primary); }
+
+.nav-links a:hover { 
+  color: var(--color-primary); 
+}
 
 .nav-toggle {
   display: none;
@@ -130,12 +129,12 @@ body {
   cursor: pointer;
   color: var(--color-blue);
 }
+
 .nav-toggle:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
-/* Hamburger becomes visible on small screens */
 @media (max-width: 900px) {
   .nav-toggle { display: block; }
   .nav-links {
@@ -152,15 +151,15 @@ body {
   .nav-links.show { display: flex; }
 }
 
-/* ---------- Hero (big banner) ---------- */
 .hero {
-  background: #0b2647;               /* dark navy */
+  background: #0b2647;         
   min-height: 60vh;
   display: flex;
   align-items: center;
   padding: 2rem 4rem;
   color: #fff;
 }
+
 .hero-content {
   display: flex;
   align-items: center;
@@ -169,20 +168,33 @@ body {
   margin: 0 auto;
   width: 100%;
 }
-.hero-text { flex: 1; max-width: 50%; }
-.hero-tagline { font-size: 1.2rem; margin-bottom: .5rem; }
+
+.hero-text { 
+  flex: 1; 
+  max-width: 50%; 
+}
+.hero-tagline { 
+  font-size: 1.2rem; 
+  margin-bottom: .5rem; 
+}
+
 .hero-title {
   font-family: var(--font-heading);
   font-size: 2.5rem;
   margin: .5rem 0 1rem;
 }
-.hero-date { font-size: 1.1rem; margin-bottom: 2rem; }
+
+.hero-date { 
+  font-size: 1.1rem; margin-bottom: 2rem; 
+}
+
 .hero-photo-wrapper {
   flex: 1;
   max-width: 45%;
   display: flex;
   justify-content: flex-end;
 }
+
 .hero-photo-wrapper img {
   width: 350px; height: 350px;
   object-fit: cover;
@@ -190,17 +202,18 @@ body {
   box-shadow: 0 4px 15px rgba(0,0,0,.3);
   border: 5px solid #0b2647;
 }
+
 @media (max-width: 900px) {
   .hero-content { flex-direction: column; gap: 2rem; }
   .hero-text,
   .hero-photo-wrapper { max-width: 100%; text-align: center; }
   .hero-photo-wrapper img { width: 240px; height: 240px; border: 4px solid #0b2647; }
 }
+
 @media (max-width: 600px) {
   .hero-photo-wrapper img { width: 180px; height: 180px; border: 3px solid #0b2647; }
 }
 
-/* ---------- Buttons ---------- */
 .btn-primary {
   display: inline-block;
   padding: .75rem 1.5rem;
@@ -214,9 +227,11 @@ body {
   cursor: pointer;
   transition: background .2s ease;
 }
-.btn-primary:hover { background: var(--color-primary-hov); }
 
-/* ---------- Card component (used on many pages) ---------- */
+.btn-primary:hover { 
+  background: var(--color-primary-hov); 
+}
+
 .card {
   background: #fff;
   border-radius: .5rem;
@@ -225,7 +240,6 @@ body {
 }
 .card h3 { margin-top: 0; }
 
-/* ---------- Countdown (home page only but generic enough) ---------- */
 .countdown-wrapper {
   font-family: var(--font-heading);
   color: var(--color-blue);
