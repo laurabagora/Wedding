@@ -1,361 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Laura &amp; Nathan — RSVP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/overall.css" />
+    <link rel="stylesheet" href="css/rsvp.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Laura &amp; Nathan — RSVP</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="wedding.css" />
-</head>
-
-<body>
-
-<nav class="nav">
-
-  <div class="logo">
-    <a href="index.html">Our Wedding</a>
-  </div>
-
-  <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
-    ☰
-    <span class="visually-hidden">Menu</span>
-  </button>
-
-  <ul class="nav-links" id="primary-nav">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="story.html">Our Story</a></li>
-    <li><a href="events.html">Schedule</a></li>
-    <li><a href="party.html">Bridal Party</a></li>
-    <li><a href="registry.html">Registry</a></li>
-    <li><a href="details.html">Details</a></li>
-    <li><a href="rsvp.html" aria-current="page">RSVP</a></li>
-  </ul>
-</nav>
-
-
-<header class="subpage-header">
-  <h1>RSVP</h1>
-
-    <p class="subtitle">
-      Please let us know if you’ll be joining us for our special day!
-    </p>
-
-</header>
-<main class="section">
-
-<div class="section-inner rsvp-container">
-
-<form id="rsvp-form" class="rsvp-form">
-
-  <div class="form-row">
-    <label for="first-name">First Name</label>
-    <input 
-      type="text" 
-      id="first-name" 
-      name="firstName" 
-      required>
-  </div>
-
-
-  <div class="form-row">
-    <label for="last-name">Last Name</label>
-    <input 
-      type="text" 
-      id="last-name" 
-      name="lastName" 
-      required>
-  </div>
-
-
-  <div class="form-row">
-
-    <label>
-      Will you be attending?
-    </label>
-
-    <select name="attendance" required>
-
-      <option value="">
-        Please select
-      </option>
-
-      <option value="Yes">
-        Yes
-      </option>
-
-      <option value="No">
-        No
-      </option>
-
-    </select>
-
-  </div>
-
-  <div class="form-row">
-
-    <label for="message">
-      Message for Laura & Nathan 
-    </label>
-
-    <textarea
-      id="message"
-      name="message"
-      rows="4"
-      placeholder="Leave us a note!">
-    </textarea>
-
-  </div>
-
-  <div class="form-row">
-
-    <label for="guests">
-      Number of additional guests attending
-    </label>
-
-
-    <select id="guests" name="guests" required>
-
-      <option value="1">0</option>
-      <option value="2">1</option>
-      <option value="3">2</option>
-      <option value="4">3</option>
-      <option value="5">4</option>
-      <option value="6">5</option>
-
-    </select>
-
-  </div>
-
-
-
-  <!-- EXTRA GUESTS APPEAR HERE -->
-
-  <div id="additional-guests"></div>
+  <body>
+    <nav class="nav">
+      <div class="logo">
+        <a href="index.html">Our Wedding</a>
+      </div>
   
-
-
-
-
-  <button type="submit" class="btn-primary submit-btn">
-
-    <span class="button-text">
-      Submit RSVP
-    </span>
-
-    <span class="spinner" aria-hidden="true"></span>
-
-  </button>
-
-
-</form>
-
-
-
-<!-- THIS IS OUTSIDE THE FORM -->
-
-<div 
-id="thank-you-message" 
-class="thank-you-card" 
-style="display:none;">
-
-  <h2>
-    Thank You!
-  </h2>
-
-
-  <p class="thank-you-main">
-    We are so excited to celebrate with you.
-  </p>
-
-
-  <p>
-    Your RSVP has been received, and we can't wait
-    to share our special day with you.
-  </p>
-
-
-
-  <div class="contact-card">
-
-    <h3>
-      Questions?
-    </h3>
-
-
-    <p>
-      Feel free to reach out anytime!
-    </p>
-
-
-    <p>
-      <strong>Laura</strong><br>
-
-      <a href="mailto:laura.marie262@gmail.com">
-        laura.marie262@gmail.com
-      </a>
-
-      <br>
-      (520) 582-5067
-
-    </p>
-
-
-
-    <p>
-
-      <strong>Nathan</strong><br>
-
-      <a href="mailto:nathancatanach@gmail.com">
-        nathancatanach@gmail.com
-      </a>
-
-      <br>
-      (623) 466-3528
-
-    </p>
-
-
-  </div>
-
-
-</div>
-
-
-</div>
-
-</main>
-
-<footer class="footer">
-  <p>The Future Catanach's Est. 2027</p>
-</footer>
-
-<script>
-
-const navToggle = document.querySelector(".nav-toggle");
-const navList = document.getElementById("primary-nav");
-
-const guestSelect = document.getElementById("guests");
-const additionalGuests = document.getElementById("additional-guests");
-
-const form = document.getElementById("rsvp-form");
-const thankYou = document.getElementById("thank-you-message");
-
-
-if(navToggle && navList){ navToggle.addEventListener("click",()=> {
-  const expanded = navToggle.getAttribute("aria-expanded")==="true";
-  navToggle.setAttribute("aria-expanded", !expanded );
-  navList.classList.toggle("show");
-  });
-}
-
-
-function createGuestFields(number) {
-
-    additionalGuests.innerHTML = "";
-
-    for (let i = 2; i <= number; i++) {
-
-        const guestDiv = document.createElement("div");
-
-        guestDiv.className = "guest-card";
-
-        guestDiv.innerHTML = `
-
-            <h3>Additional Guest ${i-1}</h3>
-
-            <div class="form-row">
-                <label for="guest${i}FirstName">
-                    First Name
-                </label>
-
-                <input
-                    type="text"
-                    id="guest${i}FirstName"
-                    name="guest${i}FirstName">
-            </div>
-
-
-            <div class="form-row">
-                <label for="guest${i}LastName">
-                    Last Name
-                </label>
-
-                <input
-                    type="text"
-                    id="guest${i}LastName"
-                    name="guest${i}LastName">
-            </div>
-
-        `;
-
-
-        additionalGuests.appendChild(guestDiv);
-
-    }
-
-}
-
-
-guestSelect.addEventListener("change", function(){
-
-    const numberOfGuests = Number(this.value);
-
-    createGuestFields(numberOfGuests);
-
-});
-
-const submitButton = form.querySelector(".submit-btn");
-
-
-form.addEventListener(
-"submit",
-function(e){
-
-e.preventDefault();
-
-
-submitButton.disabled = true;
-submitButton.classList.add("loading");
-
-
-const data = new FormData(form);
-
-
-fetch(
-"https://script.google.com/macros/s/AKfycbzRQu-edxfQmr_kPi_iYrFkPJPw79cE9fxCY-JlrdZSecqGdGMxSzD-EDRDGKnOmUXH/exec",
-{
-method:"POST",
-body:data
-}
-
-)
-
-.then(()=>{
-
-form.style.display="none";
-
-thankYou.style.display="block";
-
-
-})
-
-
-.catch(()=>{
-
-alert(
-"Something went wrong. Please try again."
-);
-
-
-submitButton.disabled=false;
-
-submitButton.classList.remove("loading");
-
-
-});
-
-
-});
-</script>
-</body>
+      <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+        ☰
+        <span class="visually-hidden">Menu</span>
+      </button>
+  
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="events.html">Schedule</a></li>
+        <li><a href="party.html">Bridal Party</a></li>
+        <li><a href="registry.html">Registry</a></li>
+        <li><a href="details.html">Details</a></li>
+        <li><a href="rsvp.html" aria-current="page">RSVP</a></li>
+      </ul>
+    </nav>
+    
+    <header class="subpage-header">
+      <h1>RSVP</h1>
+        <p class="subtitle">Please let us know if you’ll be joining us for our special day!</p>
+    </header>
+    
+    <main class="section">
+      <div class="section-inner rsvp-container">
+        <form id="rsvp-form" class="rsvp-form">
+          <div class="form-row">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="firstName" required>
+          </div>
+        
+          <div class="form-row">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="lastName" required>
+          </div>
+        
+          <div class="form-row">
+            <label>Will you be attending?</label>
+            <select name="attendance" required>
+              <option value="">Please select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        
+          <div class="form-row">
+            <label for="message">Message for Laura & Nathan </label>
+            <textarea id="message" name="message" rows="4" placeholder="Leave us a note!"></textarea>
+          </div>
+        
+          <div class="form-row">
+            <label for="guests">Number of additional guests attending</label>
+            <select id="guests" name="guests" required>
+              <option value="1">0</option>
+              <option value="2">1</option>
+              <option value="3">2</option>
+              <option value="4">3</option>
+              <option value="5">4</option>
+              <option value="6">5</option>
+            </select>
+          </div>
+        
+          <div id="additional-guests"></div>
+            <button type="submit" class="btn-primary submit-btn">
+              <span class="button-text">Submit RSVP</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+      
+        <div id="thank-you-message" class="thank-you-card" style="display:none;">
+          <h2>Thank You!</h2>
+          <p class="thank-you-main">We are so excited to celebrate with you.</p>
+          <p>Your RSVP has been received, and we can't wait to share our special day with you.</p>
+          <div class="contact-card">
+            <h3>Questions?</h3>
+            <p>Feel free to reach out anytime!</p>
+            <p><strong>Laura</strong><br><a href="mailto:laura.marie262@gmail.com">laura.marie262@gmail.com</a><br> (520) 582-5067</p>
+            <p><strong>Nathan</strong><br><a href="mailto:nathancatanach@gmail.com">nathancatanach@gmail.com</a><br>(623) 466-3528</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer class="footer">
+      <p>The Future Catanachs Est. 2027</p>
+    </footer>
+  
+    <script>
+      const navToggle = document.querySelector(".nav-toggle");
+      const navList = document.getElementById("primary-nav");
+      const guestSelect = document.getElementById("guests");
+      const additionalGuests = document.getElementById("additional-guests");
+      const form = document.getElementById("rsvp-form");
+      const thankYou = document.getElementById("thank-you-message");
+      
+      if(navToggle && navList){ navToggle.addEventListener("click",()=> {
+        const expanded = navToggle.getAttribute("aria-expanded")==="true";
+        navToggle.setAttribute("aria-expanded", !expanded );
+        navList.classList.toggle("show");
+        });
+      }
+      
+      function createGuestFields(number) {
+        additionalGuests.innerHTML = "";
+        for (let i = 2; i <= number; i++) {
+          const guestDiv = document.createElement("div");
+          guestDiv.className = "guest-card";
+          guestDiv.innerHTML = `
+          <h3>Additional Guest ${i-1}</h3>
+          <div class="form-row">
+            <label for="guest${i}FirstName">First Name</label>
+            <input type="text" id="guest${i}FirstName" name="guest${i}FirstName">
+          </div>
+      
+          <div class="form-row">
+            <label for="guest${i}LastName">Last Name</label>
+            <input type="text" id="guest${i}LastName" name="guest${i}LastName">
+          </div>`;
+      
+          additionalGuests.appendChild(guestDiv);
+        }
+      }
+      
+      guestSelect.addEventListener("change", function(){
+        const numberOfGuests = Number(this.value);
+        createGuestFields(numberOfGuests);
+      });
+      
+      const submitButton = form.querySelector(".submit-btn");
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+        submitButton.disabled = true;
+        submitButton.classList.add("loading");
+        const data = new FormData(form);
+        fetch("https://script.google.com/macros/s/AKfycbzRQu-edxfQmr_kPi_iYrFkPJPw79cE9fxCY-JlrdZSecqGdGMxSzD-EDRDGKnOmUXH/exec", { method:"POST", body:data })
+          .then(()=>{ form.style.display="none"; thankYou.style.display="block";})
+          .catch(()=>{alert("Something went wrong. Please try again.");
+        submitButton.disabled=false;
+        submitButton.classList.remove("loading");});
+      });
+      </script>
+  </body>
 </html>
