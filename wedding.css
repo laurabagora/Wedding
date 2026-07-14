@@ -1079,9 +1079,3 @@ hr.divider {
   margin: .4rem 0 0 0;
 }
 
-/* -------------------------------------------------------------
-   4️⃣  Responsive tweak – keep the divider from overwhelming
-   ------------------------------------------------------------- */
-@media (max-width: 600px) {
-  hr.divider { margin: 2rem auto; }
-}
