@@ -2,61 +2,133 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Events • Laura & Nathan</title>
+  <title>Laura &amp; Nathan — Wedding</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="wedding.css" />
 </head>
+
 <body>
+  <!-- ==== Navigation ==== -->
   <nav class="nav">
-    <div class="logo">Our Wedding</div>
-    <ul class="nav-links">
+    <div class="logo">
+      <a href="index.html">Our Wedding</a>
+    </div>
+  
+    <!-- Hamburger button – hidden on larger screens -->
+    <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+      ☰
+      <span class="visually-hidden">Menu</span>
+    </button>
+  
+    <ul class="nav-links" id="primary-nav">
       <li><a href="index.html">Home</a></li>
-      <li><a href="events.html" class="active">Events</a></li>
-      <li><a href="travel.html">Travel</a></li>
-      <li><a href="details.html">Details</a></li>
-      <li><a href="party.html">Wedding Party</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="events.html">Schedule</a></li>
+      <li><a href="party.html">Bridal Party</a></li>
       <li><a href="registry.html">Registry</a></li>
+      <li><a href="details.html">Additional Details</a></li>
       <li><a href="rsvp.html">RSVP</a></li>
     </ul>
   </nav>
 
-  <header class="page-header">
-    <h1>Events &amp; Important Dates</h1>
+  <header class="subpage-header">
+    <h1>Our Story</h1>
+    <p class="subtitle">How we grew up, found each other, and built a life together.</p>
   </header>
 
-  <main>
-    <section class="section section-alt">
-      <div class="section-inner">
-        <div class="card-grid">
-          <article class="card">
-            <h3>Ceremony &amp; Reception</h3>
-            <p><strong>Date:</strong> June 19, 2026</p>
-            <p><strong>Time:</strong> [Start Time] – [End Time]</p>
-            <p><strong>Location:</strong> [Venue Name], [Address]</p>
-            <ul class="timeline">
-              <li><span>4:00 PM</span> Ceremony</li>
-              <li><span>5:00 PM</span> Cocktail Hour</li>
-              <li><span>6:00 PM</span> Dinner &amp; Reception</li>
-              <li><span>9:00 PM</span> Dancing</li>
-            </ul>
-          </article>
+  <main class="section">
+    <div class="section-inner">
+  
+      <!-- Bios section -->
+      <section class="bios">
+        <article class="bio">
+          <img src="photos/nathan-child.jpg" alt="Nathan as a child" class="bio-photo" />
+          <h3>Nathan Elliott Catanach</h3>
+          <p>Nathan was born in Glendale, Arizona and shortly moved around to New York then back to Arizona. From a young age he loved
+            baseball and played in college. He is now working as a personal trainer at CLub4 fitness center and at Amazon warehouse.
+          </p>
+        </article>
+  
+        <article class="bio">
+          <img src="photos/laura-child.jpg" alt="Laura as a child" class="bio-photo" />
+          <h3>Laura Marie Guerrero</h3>
+          <p>Laura was born in Tucson, Arizona where she grew up and always loved space and the ocean. From a young age she played sports and 
+             aviation. She is now working as a software engineer at Northrop Grumman. She had one kitty named Mojito Mae before meeting Nathan.
+          </p>
+        </article>
+      </section>
+  
+      <!-- Life story paragraphs -->
+      <section class="life-story">
+        <p>Nathan and Laura both attended Northern Arizona University. At the time, Laura was working as a software developer at the 
+          university, while Nathan was a personal trainer at a nearby physio shop. Their workplaces were just across from each other, 
+          and though they exchanged smiles, nerves kept them from speaking. Thankfully, in the age of dating apps, they connected on Hinge 
+          and went on their first date on February 22, 2025. From that moment, they were inseparable. They enjoyed trips to baseball games
+           in Phoenix, Arizona, and San Diego, California. After graduating from NAU, they packed up Laura’s trusty eight-year-old Jeep and
+            embarked on a memorable 40-hour road trip to Melbourne, Florida—along the way adopting a cat named Megatron to join their new adventure.</p>
 
-          <article class="card">
-            <h3>Other Events</h3>
-            <p>Optional events leading up to or after the wedding.</p>
-            <ul>
-              <li><strong>Rehearsal Dinner</strong> – [Date, Time, Location]</li>
-              <li><strong>Welcome Drinks</strong> – [Date, Time, Location]</li>
-              <li><strong>Day-After Brunch</strong> – [Date, Time, Location]</li>
-            </ul>
-          </article>
+        <p>The drive went smoothly and was truly a fun experience. Settling into a cozy one-bedroom apartment together, 
+          they began transforming the space into a home. They not only survived the long journey but also the challenge 
+          of assembling furniture as a team. Over time, they shared countless vacations, visiting exciting destinations such 
+          as SeaWorld, Universal Studios, Disney World, Busch Gardens, Boston, Massachusetts, and, of course, returning to Arizona 
+          for Christmas and many beach trips. With each shared adventure, their love grew deeper and stronger.</p>
+        
+        <p>Then, on July 1, 2026, Nathan got down on one knee and asked Laura to spend the rest of their lives together. Laura said yes without 
+          hesitation, and now they eagerly anticipate celebrating their love with family and friends. They are deeply grateful to everyone who has 
+          been part of their journey. Together, as a little family, they look forward to embracing life’s next chapter with joy and excitement.</p>
+      </section>
+  
+      <section class="collage">
+        <h2>Moments from Our Life</h2>
+        <div class="collage-grid">
+          
+          <figure class="collage-item">
+            <img src="photos/collage1.jpg" alt="Description of photo 1" />
+            <figcaption>Caption describing photo 1</figcaption>
+          </figure>
+          
+          <figure class="collage-item">
+            <img src="photos/collage2.jpg" alt="Description of photo 2" />
+            <figcaption>Caption describing photo 2</figcaption>
+          </figure>
+          
+          <figure class="collage-item">
+            <img src="photos/collage3.jpg" alt="Description of photo 3" />
+            <figcaption>Caption describing photo 3</figcaption>
+          </figure>
+          
+          <!-- Add more figure blocks for each photo -->
+          
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
+
   <footer class="footer">
-    <p>2026 Laura Guerrero &amp; Nathan Catanach. All rights reserved.</p>
+    <p>The Future Catanach's Est. 2027</p>
   </footer>
+
+  <script>
+  // Grab the toggle button and the nav list
+  const navToggle = document.querySelector('.nav-toggle');
+  const navList   = document.getElementById('primary-nav');
+
+  if (navToggle && navList) {
+      navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+      navToggle.setAttribute('aria-expanded', !expanded);
+      navList.classList.toggle('show');
+      });
+
+      // Close the menu when a link is clicked (useful on single‑page anchors)
+      navList.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+          navList.classList.remove('show');
+          navToggle.setAttribute('aria-expanded', 'false');
+      }
+      });
+  }
+</script>
 </body>
 </html>
