@@ -2,61 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Events • Laura & Nathan</title>
+  <title>Laura &amp; Nathan — Wedding</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="wedding.css" />
 </head>
+
 <body>
+  <!-- ==== Navigation ==== -->
   <nav class="nav">
-    <div class="logo">Our Wedding</div>
-    <ul class="nav-links">
+    <div class="logo">
+      <a href="index.html">Our Wedding</a>
+    </div>
+  
+    <!-- Hamburger button – hidden on larger screens -->
+    <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+      ☰
+      <span class="visually-hidden">Menu</span>
+    </button>
+  
+    <ul class="nav-links" id="primary-nav">
       <li><a href="index.html">Home</a></li>
-      <li><a href="events.html" class="active">Events</a></li>
-      <li><a href="travel.html">Travel</a></li>
-      <li><a href="details.html">Details</a></li>
-      <li><a href="party.html">Wedding Party</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="events.html">Schedule</a></li>
+      <li><a href="party.html">Bridal Party</a></li>
       <li><a href="registry.html">Registry</a></li>
+      <li><a href="details.html">Additional Details</a></li>
       <li><a href="rsvp.html">RSVP</a></li>
     </ul>
   </nav>
 
-  <header class="page-header">
-    <h1>Events &amp; Important Dates</h1>
+  <header class="subpage-header">
+    <h1>Wedding Schedule</h1>
+    <p class="subtitle">What to expeect for the weekend below.</p>
   </header>
-
+  
   <main>
     <section class="section section-alt">
       <div class="section-inner">
         <div class="card-grid">
+  
           <article class="card">
-            <h3>Ceremony &amp; Reception</h3>
-            <p><strong>Date:</strong> June 19, 2026</p>
-            <p><strong>Time:</strong> [Start Time] – [End Time]</p>
-            <p><strong>Location:</strong> [Venue Name], [Address]</p>
-            <ul class="timeline">
-              <li><span>4:00 PM</span> Ceremony</li>
-              <li><span>5:00 PM</span> Cocktail Hour</li>
-              <li><span>6:00 PM</span> Dinner &amp; Reception</li>
-              <li><span>9:00 PM</span> Dancing</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Other Events</h3>
-            <p>Optional events leading up to or after the wedding.</p>
+            <h3>Thursday, June 17th, 2027</h3>
             <ul>
-              <li><strong>Rehearsal Dinner</strong> – [Date, Time, Location]</li>
-              <li><strong>Welcome Drinks</strong> – [Date, Time, Location]</li>
-              <li><strong>Day-After Brunch</strong> – [Date, Time, Location]</li>
+              <li>Everyone arrives</li>
+              <li>Relax & settle in</li>
             </ul>
           </article>
+  
+          <article class="card">
+            <h3>Friday, June 18th, 2027</h3>
+            <ul>
+              <li>Beach day & explore Melbourne</li>
+              <li><strong>MANDATORY</strong> Wiffle Ball Tournament</li>
+              <li>Set up for ceremony</li>
+              <li>Small rehearsal dinner in the evening</li>
+            </ul>
+          </article>
+  
+          <article class="card">
+            <h3>Saturday, June 19th, 2027</h3>
+            <ul>
+              <li>Get ready around 3:00 PM</li>
+              <li><strong>Ceremony starts at 6:00 PM</strong></li>
+              <li>Reception & festivities follow ceremony</li>
+              <li>Send-off at midnight (12:00 AM)</li>
+            </ul>
+          </article>
+  
+          <article class="card">
+            <h3>Sunday, June 20th, 2027</h3>
+            <ul>
+              <li>Breakfast with dads (Father’s Day)</li>
+              <li>Everyone departs</li>
+            </ul>
+          </article>
+  
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© 2026 Laura Guerrero &amp; Nathan Catanach. All rights reserved.</p>
+    <p>The Future Catanach's Est. 2027</p>
   </footer>
+
+  <script>
+  // Grab the toggle button and the nav list
+  const navToggle = document.querySelector('.nav-toggle');
+  const navList   = document.getElementById('primary-nav');
+
+  if (navToggle && navList) {
+      navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+      navToggle.setAttribute('aria-expanded', !expanded);
+      navList.classList.toggle('show');
+      });
+
+      // Close the menu when a link is clicked (useful on single‑page anchors)
+      navList.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+          navList.classList.remove('show');
+          navToggle.setAttribute('aria-expanded', 'false');
+      }
+      });
+  }
+</script>
+
 </body>
 </html>
