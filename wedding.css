@@ -1039,3 +1039,18 @@ hr.divider {
   );
   background-size: 8px 2px;      /* create a faint dashed effect */
 }
+/* -----------------------------------------------------------------
+   Registry page – centered, max‑width container
+----------------------------------------------------------------- */
+.registry-wrapper {
+  max-width: 600px;          /* limits width on large screens */
+  margin: 2rem auto;         /* centers horizontally + top spacing */
+  text-align: center;        /* keep the text and button centered */
+  padding: 0 1rem;           /* small side padding for very narrow viewports */
+}
+
+/* Make the button a bit larger without inline styles */
+.registry-wrapper .btn-primary {
+  font-size: 1.3rem;
+  padding: 1rem 2rem;
+}
