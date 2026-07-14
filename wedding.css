@@ -1054,3 +1054,57 @@ hr.divider {
   font-size: 1.3rem;
   padding: 1rem 2rem;
 }
+
+/* -------------------------------------------------------------
+   1️⃣  Decorative divider – thin, sage‑green, centered
+   ------------------------------------------------------------- */
+hr.divider {
+  border: 0;
+  height: 2px;
+  margin: 3rem auto;               /* vertical spacing */
+  max-width: 60%;                  /* keeps it from stretching fully */
+  background: var(--color-primary);
+  border-radius: 2px;
+  opacity: 0.85;
+}
+
+/* -------------------------------------------------------------
+   2️⃣  Travel & accommodation bullets – left aligned
+   ------------------------------------------------------------- */
+.travel-list {
+  list-style: disc inside;          /* disc bullet, inside the padding area */
+  margin: 0;
+  padding-left: 1.5rem;            /* extra space for the bullet */
+  column-gap: 2rem;
+  line-height: 1.6;
+}
+.travel-list li {
+  margin-bottom: 1rem;             /* breathing room between items */
+}
+
+/* Optional: make bullets a little larger & match primary colour */
+.travel-list li::marker {
+  color: var(--color-primary);
+  font-size: 1.1em;
+}
+
+/* -------------------------------------------------------------
+   3️⃣  Minor polish – keep description‑list items tidy
+   ------------------------------------------------------------- */
+.detail-item {
+  margin-bottom: 1.2rem;
+}
+.detail-item dt {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.detail-item dd {
+  margin: .4rem 0 0 0;
+}
+
+/* -------------------------------------------------------------
+   4️⃣  Responsive tweak – keep the divider from overwhelming
+   ------------------------------------------------------------- */
+@media (max-width: 600px) {
+  hr.divider { margin: 2rem auto; }
+}
