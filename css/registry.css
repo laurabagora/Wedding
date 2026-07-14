@@ -8,8 +8,9 @@
 .registry-wrapper p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: var(--color-text);
+  color: var(--color-blue);
   margin-bottom: 1.5rem;
+  margin-top: -1.5rem;
 }
 
 .registry-wrapper .btn-primary {
