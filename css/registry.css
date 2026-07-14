@@ -1,16 +1,16 @@
 .registry-wrapper {
-  max-width: 600px;         
+  max-width: 650px;         
   margin: 2rem auto;        
   text-align: center;
   padding: 0 1rem;         
 }
 
 .registry-wrapper p {
-  font-size: .85rem;
+  font-size: .9rem;
   line-height: 1.6;
   color: var(--color-blue);
   margin-bottom: 1.5rem;
-  margin-top: -1.5rem;
+  margin-top: -3rem;
 }
 
 .registry-wrapper .btn-primary {
