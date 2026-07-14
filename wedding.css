@@ -1014,3 +1014,28 @@ main, .section-inner {
     }
 
 }
+
+/* -----------------------------------------------------------------
+   Decorative Divider
+----------------------------------------------------------------- */
+hr.divider {
+  border: 0;                     /* remove the default border */
+  height: 2px;                   /* thickness of the line */
+  margin: 3rem auto;             /* vertical spacing – adjust as needed */
+  max-width: 60%;                /* line doesn’t stretch the full width */
+  background: var(--color-primary);   /* use your sage‑green variable */
+  border-radius: 2px;            /* slightly rounded edges give a soft look */
+  opacity: 0.8;                  /* a hint of subtlety */
+}
+
+/* Optional: make it a little more “hand‑drawn” */
+hr.divider {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-primary) 0,
+    var(--color-primary) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  background-size: 8px 2px;      /* create a faint dashed effect */
+}
