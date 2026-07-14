@@ -1,84 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Laura &amp; Nathan — Wedding</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="wedding.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Laura &amp; Nathan — Wedding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/overall.css" />
+    <link rel="stylesheet" href="css/registry.css" />
+  </head>
 
-<body>
-  <!-- ==== Navigation ==== -->
-  <nav class="nav">
-    <div class="logo">
-      <a href="index.html">Our Wedding</a>
-    </div>
-  
-    <!-- Hamburger button – hidden on larger screens -->
-    <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
-      ☰
-      <span class="visually-hidden">Menu</span>
-    </button>
-  
-    <ul class="nav-links" id="primary-nav">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="story.html">Our Story</a></li>
-      <li><a href="events.html">Schedule</a></li>
-      <li><a href="party.html">Bridal Party</a></li>
-      <li><a href="registry.html">Registry</a></li>
-      <li><a href="details.html">Details</a></li>
-      <li><a href="rsvp.html">RSVP</a></li>
-    </ul>
-  </nav>
-
-  <header class="subpage-header">
-    <h1>Registry</h1>
-    <p class="subtitle">Click the link below to view our registry.</p>
-  </header>
-
-    <main class="section">
-    <div class="registry-wrapper">
-      <div class="countdown-wrapper">
-        <p>
-          We’d love your help to fund our honeymoon or contribute toward a
-          down‑payment on our future home. No pressure at all – any support is
-          deeply appreciated as we celebrate this next chapter together.
-        </p>
+  <body>
+    <nav class="nav">
+      <div class="logo">
+        <a href="index.html">Our Wedding</a>
       </div>
-      <br></br>
-
-      <a href="https://www.honeyfund.com/site/guerrero-catanach-06-19-2027"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn-primary">View Our Registry</a>
-    </div>
-  </main>
+    
+      <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+        ☰
+        <span class="visually-hidden">Menu</span>
+      </button>
+    
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="events.html">Schedule</a></li>
+        <li><a href="party.html">Bridal Party</a></li>
+        <li><a href="registry.html">Registry</a></li>
+        <li><a href="details.html">Details</a></li>
+        <li><a href="rsvp.html">RSVP</a></li>
+      </ul>
+    </nav>
   
-  <footer class="footer">
-    <p>The Future Catanach's Est. 2027</p>
-  </footer>
-
-  <script>
-  // Grab the toggle button and the nav list
-  const navToggle = document.querySelector('.nav-toggle');
-  const navList   = document.getElementById('primary-nav');
-
-  if (navToggle && navList) {
-      navToggle.addEventListener('click', () => {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-      navToggle.setAttribute('aria-expanded', !expanded);
-      navList.classList.toggle('show');
-      });
-
-      // Close the menu when a link is clicked (useful on single‑page anchors)
-      navList.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A') {
-          navList.classList.remove('show');
-          navToggle.setAttribute('aria-expanded', 'false');
+    <header class="subpage-header">
+      <h1>Registry</h1>
+      <p class="subtitle">Click the link below to view our registry.</p>
+    </header>
+  
+      <main class="section">
+      <div class="registry-wrapper">
+        <div class="countdown-wrapper">
+          <p>
+            We’d love your help to fund our honeymoon or contribute toward a
+            down‑payment on our future home. No pressure at all – any support is
+            deeply appreciated as we celebrate this next chapter together.
+          </p>
+        </div>
+        <br></br>
+  
+        <a href="https://www.honeyfund.com/site/guerrero-catanach-06-19-2027"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn-primary">View Our Registry</a>
+      </div>
+    </main>
+    
+    <footer class="footer">
+      <p>The Future Catanach's Est. 2027</p>
+    </footer>
+  
+    <script>
+      const navToggle = document.querySelector('.nav-toggle');
+      const navList   = document.getElementById('primary-nav');
+    
+      if (navToggle && navList) {
+          navToggle.addEventListener('click', () => {
+          const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+          navToggle.setAttribute('aria-expanded', !expanded);
+          navList.classList.toggle('show');
+          });
+    
+          // Close the menu when a link is clicked (useful on single‑page anchors)
+          navList.addEventListener('click', (e) => {
+          if (e.target.tagName === 'A') {
+              navList.classList.remove('show');
+              navToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
       }
-      });
-  }
-</script>
-
-</body>
+    </script>
+  </body>
 </html>
