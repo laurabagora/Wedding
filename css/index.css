@@ -1,1 +1,15 @@
+/* ────────────────────── page‑home.css ────────────────────── */
 
+/* Welcome section that sits just under the hero */
+.welcome-section {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* Remove the stray <br> tags that were used for spacing */
+.welcome-section br { display: none; }
+
+/* Tiny tweak – center the card‑grid on the home page */
+.section .section-inner { text-align: center; }
