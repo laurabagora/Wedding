@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Laura &amp; Nathan — Wedding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="wedding.css" />
+</head>
+
+<body>
+  <!-- ==== Navigation ==== -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="index.html">Our Wedding</a>
+    </div>
+  
+    <!-- Hamburger button – hidden on larger screens -->
+    <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+      ☰
+      <span class="visually-hidden">Menu</span>
+    </button>
+  
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="events.html">Schedule</a></li>
+      <li><a href="party.html">Bridal Party</a></li>
+      <li><a href="registry.html">Registry</a></li>
+      <li><a href="details.html">Additional Details</a></li>
+      <li><a href="rsvp.html">RSVP</a></li>
+    </ul>
+  </nav>
+
+  <header class="subpage-header">
+    <h1>Bridal Party</h1>
+    <p class="subtitle">Meet the cherished friends and family standing with us on our special day.</p>
+  </header>
+  
+  <main class="section">
+    <div class="section-inner">
+    <section class="party-group">
+        <h2>The Couple</h2>
+        <dl class="party-list">
+            <dt>Bride</dt>
+            <dd>Laura Guerrero</dd>
+    
+            <dt>Groom</dt>
+            <dd>Nathan Catanach</dd>
+
+        </dl>
+        </section>
+
+      <section class="party-group">
+        <h2>Wedding Roles</h2>
+        <dl class="party-list">
+          <dt>Maid of Honor</dt>
+          <dd>Emily Donia</dd>
+  
+          <dt>Best Man</dt>
+          <dd>Spencer Catanach</dd>
+  
+          <dt>Bridesmaids</dt>
+          <dd>Hailey Allen, Ghalia Azam, Victoria Siver, Sasha</dd>
+  
+          <dt>Groomsmen</dt>
+          <dd>Brandon Buchanan, Nate, Ryan Ollenburg, Noah Coffler</dd>
+  
+          <dt>Flower Girls</dt>
+          <dd>Penelope Catanach and Aly Donia</dd>
+
+          <dt>Officiant</dt>
+          <dd>Nate</dd>
+  
+          <dt>Photographer</dt>
+          <dd>Brooklyn Hoose</dd>
+  
+          <dt>Ceremony Music</dt>
+          <dd>Alex Guerrero</dd>
+        </dl>
+      </section>
+  
+      <section class="party-group">
+        <h2>Parents</h2>
+        <dl class="party-list">
+          <dt>Mother of the Bride</dt>
+          <dd>Tanya Hoose</dd>
+  
+          <dt>Father of the Bride</dt>
+          <dd>John Guerrero</dd>
+  
+          <dt>Mother of the Groom</dt>
+          <dd>Tracey Catanach</dd>
+  
+          <dt>Father of the Groom</dt>
+          <dd>Carlos Catanach</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>The Future Catanach's Est. 2027</p>
+  </footer>
+
+  <script>
+  // Grab the toggle button and the nav list
+  const navToggle = document.querySelector('.nav-toggle');
+  const navList   = document.getElementById('primary-nav');
+
+  if (navToggle && navList) {
+      navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+      navToggle.setAttribute('aria-expanded', !expanded);
+      navList.classList.toggle('show');
+      });
+
+      // Close the menu when a link is clicked (useful on single‑page anchors)
+      navList.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+          navList.classList.remove('show');
+          navToggle.setAttribute('aria-expanded', 'false');
+      }
+      });
+  }
+</script>
+
+</body>
+</html>

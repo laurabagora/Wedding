@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Laura &amp; Nathan — RSVP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="wedding.css" />
+</head>
+<body>
+  <!-- ==== Navigation ==== -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="index.html">Our Wedding</a>
+    </div>
+
+    <!-- Hamburger button – hidden on larger screens -->
+    <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+      ☰
+      <span class="visually-hidden">Menu</span>
+    </button>
+
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="events.html">Schedule</a></li>
+      <li><a href="party.html">Bridal Party</a></li>
+      <li><a href="registry.html">Registry</a></li>
+      <li><a href="details.html">Additional Details</a></li>
+      <li><a href="rsvp.html" aria-current="page">RSVP</a></li>
+    </ul>
+  </nav>
+
+  <header class="subpage-header">
+    <h1>RSVP</h1>
+    <p class="subtitle">Please let us know if you’re joining our celebration!</p>
+  </header>
+
+  <main class="section">
+    <div class="section-inner" style="max-width: 500px; margin: 0 auto;">
+      <form
+        id="rsvp-form"
+        class="rsvp-form"
+        action="https://formspree.io/f/your-form-id"
+        method="POST"
+      >
+        <div class="form-row">
+          <label for="first-name">First Name</label>
+          <input
+            type="text"
+            id="first-name"
+            name="firstName"
+            placeholder="First name"
+            required
+          />
+        </div>
+
+        <div class="form-row">
+          <label for="last-name">Last Name</label>
+          <input
+            type="text"
+            id="last-name"
+            name="lastName"
+            placeholder="Last name"
+            required
+          />
+        </div>
+
+        <div class="form-row">
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Phone number (optional)"
+            required
+            pattern="[\d\s\+\-\(\)]+"
+          />
+        </div>
+
+        <button type="submit" class="btn-primary">Submit RSVP</button>
+      </form>
+
+      <div
+        id="thank-you-message"
+        style="display:none; margin-top: 2rem; text-align: center;"
+      >
+        <p>Thank you for your RSVP! We can’t wait to celebrate with you.</p>
+        <p>
+          For any questions, feel free to contact us at
+          <a href="mailto:laura.marie262@gmail.com">laura.marie262@gmail.com</a> or
+          call (520) 582-5067.
+          <a href="mailto:nathancatanach@gmail.com">nathancatanach@gmail.com</a> or
+          call (623) 466-3528.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>The Future Catanach's Est. 2027</p>
+  </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const navList = document.getElementById("primary-nav");
+    if (navToggle && navList) {
+      navToggle.addEventListener("click", () => {
+        const expanded =
+          navToggle.getAttribute("aria-expanded") === "true" || false;
+        navToggle.setAttribute("aria-expanded", !expanded);
+        navList.classList.toggle("show");
+      });
+      navList.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") {
+          navList.classList.remove("show");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    // Handle form submission with fetch API for better UX
+    const form = document.getElementById("rsvp-form");
+    const thankYouMessage = document.getElementById("thank-you-message");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { Accept: "application/json" }
+      })
+        .then((response) => {
+          if (response.ok) {
+            form.style.display = "none";
+            thankYouMessage.style.display = "block";
+          } else {
+            alert(
+              "Oops! There was a problem submitting your RSVP. Please try again."
+            );
+          }
+        })
+        .catch(() => {
+          alert(
+            "Oops! There was a problem submitting your RSVP. Please try again."
+          );
+        });
+    });
+  </script>
+</body>
+</html>

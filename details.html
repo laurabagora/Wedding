@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Laura &amp; Nathan — Wedding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="wedding.css" />
+</head>
+
+<body>
+  <!-- ==== Navigation ==== -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="index.html">Our Wedding</a>
+    </div>
+  
+    <!-- Hamburger button – hidden on larger screens -->
+    <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+      ☰
+      <span class="visually-hidden">Menu</span>
+    </button>
+  
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="events.html">Schedule</a></li>
+      <li><a href="party.html">Bridal Party</a></li>
+      <li><a href="registry.html">Registry</a></li>
+      <li><a href="details.html">Additional Details</a></li>
+      <li><a href="rsvp.html">RSVP</a></li>
+    </ul>
+  </nav>
+
+  <header class="subpage-header">
+    <h1>Additional Details</h1>
+    <p class="subtitle">What to wear, what to expect, what to pack</p>
+  </header>
+  
+  <main class="section">
+    <div class="section-inner">
+  
+      <!-- Color Scheme -->
+      <section class="color-scheme">
+        <h2>Wedding Colors</h2>
+        <div class="color-circles">
+          <span class="color-circle sage"></span>
+          <span class="color-circle baby-blue"></span>
+          <span class="color-circle navy-blue"></span>
+        </div>
+      </section>
+  
+      <!-- Important Details -->
+      <section class="important-details">
+        <h2>Important Details</h2>
+        <ul>
+          <li>Please bring your swimsuits for beach day!</li>
+          <li>This will be a <strong>no-shoe ceremony</strong> — so plan accordingly for comfort and style.</li>
+          <li>Dress code is cocktail or semi-formal, but stay comfortable for the outdoors.</li>
+          <li>Consider sunscreen and hats for outdoor events.</li>
+          <li>Transportation and parking information is available on the Travel page.</li>
+        </ul>
+      </section>
+
+      <section class="travel-info">
+        <h2>Travel & Accommodation</h2>
+        <p>
+          While we won’t be covering flight expenses, all our friends are invited to stay with us at
+        a shared Airbnb during the wedding weekend.  
+        </p>
+        <p>
+          For family accommodations, please coordinate directly with your respective family member 
+        to arrange lodging and travel plans.
+        </p>
+        <p>
+          We are happy to provide transportation by picking guests up from the airport and providing 
+          drop-offs as needed. Please reach out in advance so we can plan accordingly.
+        </p>
+      </section>
+  
+    </div>
+  </main>
+  
+  <footer class="footer">
+    <p>The Future Catanach's Est. 2027</p>
+  </footer>
+
+  <script>
+  // Grab the toggle button and the nav list
+  const navToggle = document.querySelector('.nav-toggle');
+  const navList   = document.getElementById('primary-nav');
+
+  if (navToggle && navList) {
+      navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+      navToggle.setAttribute('aria-expanded', !expanded);
+      navList.classList.toggle('show');
+      });
+
+      // Close the menu when a link is clicked (useful on single‑page anchors)
+      navList.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+          navList.classList.remove('show');
+          navToggle.setAttribute('aria-expanded', 'false');
+      }
+      });
+  }
+</script>
+
+</body>
+</html>
