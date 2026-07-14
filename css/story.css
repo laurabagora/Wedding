@@ -1,0 +1,122 @@
+/* ────────────────────── page‑story.css ────────────────────── */
+/* This file contains ONLY the styles that are used on story.html.
+   All common styles (reset, variables, layout, nav, buttons, footer, etc.)
+   live in base.css, layout.css and components.css. */
+
+/* -------------------------------------------------
+   1️⃣  Bios – side‑by‑side photo + text
+   ------------------------------------------------- */
+.bios {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;               /* stack on narrow screens */
+  margin-bottom: 3rem;
+}
+.bio {
+  flex: 1 1 300px;               /* min width before wrapping */
+  text-align: center;
+}
+.bio-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,.1);
+}
+
+/* -------------------------------------------------
+   2️⃣  Life‑story paragraph styling
+   ------------------------------------------------- */
+.life-story p {
+  max-width: 800px;
+  margin: 1.5rem auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+/* -------------------------------------------------
+   3️⃣  Collage grid (photo gallery)
+   ------------------------------------------------- */
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+.collage-item {
+  text-align: center;
+}
+.collage-item a {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.collage-item img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  transition: transform .25s ease;
+}
+.collage-item a:hover img {
+  transform: scale(1.06);
+}
+.collage-item figcaption {
+  margin-top: .4rem;
+  font-size: .9rem;
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+/* -------------------------------------------------
+   4️⃣  GLightbox – custom theme for the story gallery
+   ------------------------------------------------- */
+.goverlay {
+  background: rgba(8, 18, 36, 0.94) !important;
+}
+.gslide-description {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  max-width: 100%;
+}
+.gdesc-inner {
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0)
+  );
+  padding: 30px;
+  border-radius: 0 0 10px 10px;
+}
+.gslide-title {
+  color: #fff !important;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: .4rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,.6);
+}
+.gslide-desc {
+  color: rgba(255,255,255,.92) !important;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-shadow: 0 2px 6px rgba(0,0,0,.5);
+}
+
+/* -------------------------------------------------
+   5️⃣  Small extra helper (if you use a guest‑list on the story page)
+   ------------------------------------------------- */
+#guest-list li {
+  margin-bottom: .4rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+/* -------------------------------------------------
+   6️⃣  Mobile tweaks (optional but recommended)
+   ------------------------------------------------- */
+@media (max-width: 600px) {
+  .bio-photo { width: 120px; height: 120px; }
+  .collage-item img { height: 110px; }
+}
