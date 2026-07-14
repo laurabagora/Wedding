@@ -6,6 +6,8 @@
   --color-primary-hover: #8F9F75;  /* deeper sage green */
 
   /* Keep other variables unchanged */
+  --color-dark-green: #5F6F52;
+  --color-medium-blue: #5B8FA8;
   --color-secondary: #003366;
   --color-bg: #F7FCFF;
   --color-bg-alt: #F7FCFF;
@@ -377,7 +379,7 @@ body {
   text-align: center;
   padding: 2rem 1rem;
   max-width: 700px;
-  margin: 2rem auto 3rem;
+  margin: 2rem auto 0.1rem;
   border-bottom: 1px solid var(--color-accent);
   color: var(--color-secondary);
   font-family: var(--font-heading);
@@ -434,21 +436,23 @@ body {
   text-align: center;
 }
 
+.collage-item a {
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 .collage-item img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: block;
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    transition: transform .25s ease;
 }
 
-.collage-item img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+.collage-item a:hover img {
+    transform: scale(1.06);
 }
-
 .collage-item figcaption {
   margin-top: 0.4rem;
   font-size: 0.9rem;
@@ -465,7 +469,7 @@ body {
   grid-template-columns: max-content 1fr;
   gap: 0.5rem 2rem;
   font-family: var(--font-body);
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -553,4 +557,460 @@ main, .section-inner {
   margin-bottom: 0.4rem;
   font-weight: 600;
   color: var(--color-secondary);
+}
+
+
+/* ===== Elegant GLightbox Wedding Theme ===== */
+
+/* Dark background behind the photo */
+.goverlay {
+    background: rgba(8, 18, 36, 0.94) !important;
+}
+
+/* Remove the default description box styling */
+.gslide-description {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: 100%;
+}
+
+/* Caption overlay */
+.gdesc-inner {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0)
+    );
+    padding: 30px;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Title */
+.gslide-title {
+    color: white !important;
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: .4rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,.6);
+}
+
+/* Description */
+.gslide-desc {
+    color: rgba(255,255,255,.92) !important;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-shadow: 0 2px 6px rgba(0,0,0,.5);
+}
+/* ===========================
+   Wedding Roles
+=========================== */
+
+.party-group {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.party-group h2 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 2.5rem;
+}
+
+/* Each row */
+.roles-row {
+    display: grid;
+    gap: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+/* Two card rows */
+.roles-row.two {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Three card rows */
+.roles-row.three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+/* ===========================
+   All Role Cards
+=========================== */
+
+.role-card {
+    background: #fff;
+    color: #333;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    transition: all .25s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 210px;
+}
+
+.role-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,.15);
+}
+
+
+/* ===========================
+   Card Text
+=========================== */
+
+.role-card h3 {
+    margin: 0 0 1rem;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+}
+
+.role-card p {
+    margin: .35rem 0;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+
+/* ===========================
+   Featured Bride & Groom
+=========================== */
+
+.featured-role {
+    background: var(--color-primary);
+    color: white;
+    min-height: 240px;
+}
+
+.featured-role h3 {
+    color: white;
+    font-size: 1.75rem;
+}
+
+.featured-role p {
+    color: black;
+}
+
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 900px) {
+
+    .roles-row.two,
+    .roles-row.three {
+        grid-template-columns: 1fr;
+    }
+
+    .role-card {
+        min-height: auto;
+    }
+
+}
+
+.countdown-wrapper {
+    font-family: var(--font-heading);
+    color: #003366;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+/* ===========================
+   Additional Details Page
+=========================== */
+
+.important-details,
+.travel-info {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin: 3rem auto;
+    max-width: 850px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+
+/* Section headings */
+.important-details h2,
+.travel-info h2 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+
+/* Details list */
+.important-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.important-details li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-accent);
+    line-height: 1.6;
+}
+
+.important-details li:last-child {
+    border-bottom: none;
+}
+
+.important-details li::before {
+    content: "✦";
+    color: var(--color-primary);
+    margin-right: .75rem;
+}
+
+
+/* Travel text */
+.travel-info p {
+    text-align: center;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+}
+
+
+/* Color section */
+.color-scheme {
+    background: transparent;
+    margin-bottom: 3rem;
+}
+
+.color-scheme h2 {
+    color: var(--color-primary);
+}
+
+
+/* Color circles */
+.color-circles {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+.color-circle {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.15);
+
+    border: 4px solid white;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .important-details,
+    .travel-info {
+        padding: 1.5rem;
+        margin: 2rem 1rem;
+    }
+
+    .color-circles {
+        gap: 1.5rem;
+    }
+
+    .color-circle {
+        width: 45px;
+        height: 45px;
+    }
+
+}
+
+.color-circle.dark-green {
+    background-color: var(--color-dark-green);
+}
+
+.color-circle.med-blue {
+    background-color: var(--color-medium-blue);
+}
+
+/* ===========================
+   RSVP Thank You
+=========================== */
+
+.thank-you-card {
+
+    background:white;
+
+    padding:3rem;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+
+    animation: fadeIn .5s ease;
+
+}
+
+
+.thank-you-icon {
+
+    font-size:3rem;
+
+    margin-bottom:1rem;
+
+}
+
+
+.thank-you-card h2 {
+
+    font-family:var(--font-heading);
+
+    color:var(--color-primary);
+
+    font-size:2.2rem;
+
+    margin-bottom:.75rem;
+
+}
+
+
+.thank-you-main {
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+}
+
+
+
+.contact-card {
+
+    margin-top:2rem;
+
+    background:var(--color-primary);
+
+    color:white;
+
+    padding:1.5rem;
+
+    border-radius:16px;
+
+}
+
+
+.contact-card h3 {
+
+    font-family:var(--font-heading);
+
+    font-size:1.5rem;
+
+}
+
+
+.contact-card a {
+
+    color:white;
+
+    text-decoration:underline;
+
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ===========================
+   RSVP Submit Button
+=========================== */
+
+.submit-btn {
+    background: var(--color-dark-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+
+    margin: 1rem auto 0;
+
+    min-width: 180px;
+}
+
+
+.submit-btn:hover {
+    background: var(--color-secondary);
+}
+
+
+.submit-btn:disabled {
+    cursor: not-allowed;
+    opacity: .75;
+}
+
+
+/* Loading spinner */
+
+.spinner {
+
+    display: none;
+
+    width: 18px;
+    height: 18px;
+
+    border: 3px solid rgba(255,255,255,.4);
+    border-top-color:white;
+
+    border-radius:50%;
+
+    animation: spin .8s linear infinite;
+
+}
+
+
+.submit-btn.loading .spinner {
+    display:block;
+}
+
+
+.submit-btn.loading .button-text {
+    opacity:.8;
+}
+
+
+
+@keyframes spin {
+
+    from {
+        transform:rotate(0deg);
+    }
+
+    to {
+        transform:rotate(360deg);
+    }
+
 }
