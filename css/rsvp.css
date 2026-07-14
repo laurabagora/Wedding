@@ -1,0 +1,128 @@
+.rsvp-container {
+  max-width: 600px;        
+  margin: 2rem auto;       
+  padding: 0 1rem;          
+}
+
+.rsvp-form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row label {
+  margin-bottom: .3rem;
+  font-weight: 600;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  padding: .6rem .8rem;
+  border: 1px solid #ccc;
+  border-radius: .3rem;
+  font: inherit;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+.guest-card {
+  background: #fff;
+  border-radius: .5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.07);
+}
+
+.submit-btn {
+  background: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  margin: 1rem auto 0;
+  min-width: 180px;
+}
+
+.submit-btn:hover {
+  background: var(--color-secondary);
+}
+
+.submit-btn:disabled {
+  cursor: not-allowed;
+  opacity: .75;
+}
+
+.spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255,255,255,.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+.submit-btn.loading .spinner { display: block; }
+.submit-btn.loading .button-text { opacity: .8; }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.thank-you-card {
+  background: #fff;
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  animation: fadeIn .5s ease;
+}
+
+.thank-you-card h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 2.2rem;
+  margin-bottom: .75rem;
+}
+
+.thank-you-main {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.contact-card {
+  margin-top: 2rem;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+
+.contact-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+}
+
+.contact-card a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .rsvp-container { padding: 0 .5rem; }
+  .thank-you-card { padding: 2rem; }
+}
