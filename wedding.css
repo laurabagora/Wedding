@@ -1028,17 +1028,7 @@ hr.divider {
   opacity: 0.8;                  /* a hint of subtlety */
 }
 
-/* Optional: make it a little more “hand‑drawn” */
-hr.divider {
-  background: repeating-linear-gradient(
-    90deg,
-    var(--color-primary) 0,
-    var(--color-primary) 2px,
-    transparent 2px,
-    transparent 4px
-  );
-  background-size: 8px 2px;      /* create a faint dashed effect */
-}
+
 /* -----------------------------------------------------------------
    Registry page – centered, max‑width container
 ----------------------------------------------------------------- */
@@ -1053,19 +1043,6 @@ hr.divider {
 .registry-wrapper .btn-primary {
   font-size: 1.3rem;
   padding: 1rem 2rem;
-}
-
-/* -------------------------------------------------------------
-   1️⃣  Decorative divider – thin, sage‑green, centered
-   ------------------------------------------------------------- */
-hr.divider {
-  border: 0;
-  height: 2px;
-  margin: 3rem auto;               /* vertical spacing */
-  max-width: 60%;                  /* keeps it from stretching fully */
-  background: var(--color-primary);
-  border-radius: 2px;
-  opacity: 0.85;
 }
 
 /* -------------------------------------------------------------
