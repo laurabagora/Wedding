@@ -8,11 +8,11 @@
 </head>
 
 <body>
-  <!-- ==== Navigation ==== -->
   <nav class="nav">
-    <div class="logo">Our Wedding</div>
-  
-    <!-- Hamburger button – hidden on larger screens -->
+    <div class="logo">
+      <a href="index.html">Our Wedding</a>
+    </div>
+
     <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
       ☰
       <span class="visually-hidden">Menu</span>
@@ -21,11 +21,10 @@
     <ul class="nav-links" id="primary-nav">
       <li><a href="index.html">Home</a></li>
       <li><a href="story.html">Our Story</a></li>
-      <li><a href="events.html">Events</a></li>
-      <li><a href="travel.html">Travel</a></li>
-      <li><a href="details.html">Details</a></li>
-      <li><a href="party.html">Party</a></li>
+      <li><a href="events.html">Schedule</a></li>
+      <li><a href="party.html">Bridal Party</a></li>
       <li><a href="registry.html">Registry</a></li>
+      <li><a href="details.html">Additional Details</a></li>
       <li><a href="rsvp.html">RSVP</a></li>
     </ul>
   </nav>
@@ -35,8 +34,8 @@
     <div class="hero-text">
       <p class="hero-tagline">We’re getting married!</p>
       <h1 class="hero-title">Laura Guerrero &amp; Nathan Catanach</h1>
-      <p class="hero-date">June 19, 2026<br>Melbourne, Florida</p>
-      <a href="events.html" class="btn-primary">View Wedding Day Schedule</a>
+      <p class="hero-date">June 19, 2027<br>Melbourne, Florida</p>
+      <a href="events.html" class="btn-primary">View Wedding Schedule</a>
     </div>
     <div class="hero-photo-wrapper">
       <img src="photos/photo1.jpeg" alt="Laura and Nathan at the beach" loading="lazy" />
@@ -49,57 +48,64 @@
     Thank you for visiting our wedding website! Here you’ll find all the details you need to celebrate with us, from the ceremony schedule to travel suggestions and our registry.
   </p>
 
-  <!-- Countdown display -->
   <div id="countdown" style="font-size:1.2rem; margin: 1rem 0;"></div>
 
-  <!-- RSVP button -->
   <a href="rsvp.html" class="btn-primary">RSVP Now</a>
 </div>
 
-  <!-- ==== Quick‑link cards ==== -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="card-grid">
-        <article class="card">
-          <h3>Our Story</h3>
-          <p>How we met, fell in love, and got engaged.</p>
-          <a href="story.html" class="btn-primary">Read More</a>
-        </article>
-        <article class="card">
-          <h3>Schedule</h3>
-          <p>Ceremony, cocktail hour, reception, and more.</p>
-          <a href="events.html" class="btn-primary">View Schedule</a>
-        </article>
-        <article class="card">
-          <h3>Travel</h3>
-          <p>Getting there, where to stay, and local tips.</p>
-          <a href="travel.html" class="btn-primary">Plan Your Trip</a>
-        </article>
-      </div>
+<section class="section">
+  <div class="section-inner">
+    <div class="card-grid">
+      
+      <article class="card">
+        <h3>Our Story</h3>
+        <p>How we met, fell in love, and got engaged.</p>
+        <a href="story.html" class="btn-primary">Read More</a>
+      </article>
+
+      <article class="card">
+        <h3>Bridal Party</h3>
+        <p>Meet our closest friends and family standing with us.</p>
+        <a href="party.html" class="btn-primary">View Bridal Party</a>
+      </article>
+
+      <article class="card">
+        <h3>Registry</h3>
+        <p>Discover gifts that will help us start our new life together.</p>
+        <a href="registry.html" class="btn-primary">See Our Registry</a>
+      </article>
+
+      <article class="card">
+        <h3>Details</h3>
+        <p>Color schemes, dress codes, and what to wear for the big day.</p>
+        <a href="details.html" class="btn-primary">Learn More</a>
+      </article>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ==== Footer ==== -->
   <footer class="footer">
-    <p>2026 Laura Guerrero &amp; Nathan Catanach. All rights reserved.</p>
+    <p>The Future Catanach's Est. 2027</p>
   </footer>
 
   <!-- Optional simple countdown script -->
   <script>
   // Set your wedding date here (hours in 24-hr format, local time)
-  const weddingDate = new Date('2026-06-19T16:00:00');
+  const weddingDate = new Date('2027-06-19T16:00:00');
 
   const countdownEl = document.getElementById('countdown');
 
   function updateCountdown() {
-    const now = new Date();
-    const diff = weddingDate - now;
+  const now = new Date();
+  const diff = weddingDate - now;
 
-    if (diff <= 0) {
-      countdownEl.textContent = 'The big day is here! 🎉';
-      clearInterval(timer);
-      return;
-    }
+  if (diff <= 0) {
+    countdownEl.textContent = 'The big day is here! 🎉';
+    clearInterval(timer);
+    return;
+  }
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
