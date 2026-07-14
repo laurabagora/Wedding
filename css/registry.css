@@ -1,0 +1,24 @@
+.registry-wrapper {
+  max-width: 600px;         
+  margin: 2rem auto;        
+  text-align: center;
+  padding: 0 1rem;         
+}
+
+.registry-wrapper p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.registry-wrapper .btn-primary {
+  font-size: 1.3rem;
+  padding: 1rem 2rem;
+}
+
+.registry-wrapper {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.07);
+}
