@@ -6,10 +6,10 @@
 }
 
 .registry-wrapper p {
-  font-size: .85rem;
+  font-size: .9rem;
   line-height: 1.6;
   color: var(--color-blue);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   margin-top: -3rem;
 }
 
