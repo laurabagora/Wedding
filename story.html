@@ -232,34 +232,31 @@
     </footer>
   
     <script>
-      
-    // Grab the toggle button and the nav list
-    const navToggle = document.querySelector('.nav-toggle');
-    const navList   = document.getElementById('primary-nav');
-  
-    if (navToggle && navList) {
-        navToggle.addEventListener('click', () => {
-        const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-        navToggle.setAttribute('aria-expanded', !expanded);
-        navList.classList.toggle('show');
-        });
-  
-        // Close the menu when a link is clicked (useful on single‑page anchors)
-        navList.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-            navList.classList.remove('show');
-            navToggle.setAttribute('aria-expanded', 'false');
+      const navToggle = document.querySelector('.nav-toggle');
+      const navList   = document.getElementById('primary-nav');
+    
+      if (navToggle && navList) {
+          navToggle.addEventListener('click', () => {
+          const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+          navToggle.setAttribute('aria-expanded', !expanded);
+          navList.classList.toggle('show');
+          });
+    
+          // Close the menu when a link is clicked (useful on single‑page anchors)
+          navList.addEventListener('click', (e) => {
+          if (e.target.tagName === 'A') {
+              navList.classList.remove('show');
+              navToggle.setAttribute('aria-expanded', 'false');
+          }});
         }
-        });
-    }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script>
-    const lightbox = GLightbox({
-        selector: '.glightbox',
-        loop: true,
-        touchNavigation: true
-    });
+      const lightbox = GLightbox({
+          selector: '.glightbox',
+          loop: true,
+          touchNavigation: true
+      });
     </script>
   </body>
 </html>
