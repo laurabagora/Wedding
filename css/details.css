@@ -113,7 +113,7 @@
 
 .important-details h2 {
   font-family: var(--font-heading);
-  color: #456178;
+  color: var(--color-primary);
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
@@ -125,7 +125,7 @@
 
 .detail-item dt {
   font-weight: 600;
-  color: var(--color-primary);
+  color: #456178;
 }
 
 .detail-item dd {
