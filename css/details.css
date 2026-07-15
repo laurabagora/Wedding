@@ -49,10 +49,9 @@
 
 .flight-notice {
   text-align: center;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin: 0.5rem auto 2rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-dark);
   max-width: 650px;
 }
 
