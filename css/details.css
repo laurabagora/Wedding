@@ -14,7 +14,7 @@
 .color-groups {
   display: flex;
   justify-content: center;
-  gap: 5rem;
+  gap: 7rem;
   flex-wrap: wrap;
   margin-top: 1.5rem;
   position: relative; 
