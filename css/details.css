@@ -1,6 +1,7 @@
 .color-scheme {
   text-align: center;
   margin-bottom: 3rem;
+  margin-top: -1rem;
 }
 
 .color-scheme h2 {
@@ -44,6 +45,15 @@
   font-weight: 500;
   color: var(--color-primary);
   letter-spacing: .03em;
+}
+
+.flight-notice {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0.5rem auto 2rem;
+  max-width: 650px;
 }
 
 .important-details {
