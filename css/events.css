@@ -11,13 +11,13 @@ h3 {
   font-family: var(--font-heading);
   color: var(--color-primary);
   text-align: center;
-  margin-bottom: 1rem;
 }
 
 h2 {
   font-family: var(--font-heading);
   color: var(--color-primary);
   text-align: center;
+  text-size: 1rem;
   margin-bottom: 1rem;
 }
 
