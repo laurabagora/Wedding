@@ -48,19 +48,24 @@
 }
 
 .flight-notice {
-  max-width: 650px;
-  margin: 0 auto 1.5rem;   
-  text-align: center;
+  display: inline-block;
+  margin: 0 auto 1.5rem;
+  padding: .75rem 1.25rem;
 
-  font-size: 1rem;
-  font-weight: 500;        
-  line-height: 1.5;
-
+  font-weight: 600;
   color: var(--color-blue);
-  background: rgba(39, 65, 95, 0.08); 
-  border-left: 4px solid var(--color-blue);
-  padding: 0.85rem 1rem;
-  border-radius: 10px;
+
+  border: 2px solid rgba(39, 65, 95, 0.2);
+  border-radius: 999px;
+  background: rgba(39, 65, 95, 0.05);
+}
+
+.important-details {
+  text-align: center;
+}
+
+.important-details dl {
+  text-align: left;
 }
 
 .important-details {
