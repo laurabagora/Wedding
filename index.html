@@ -93,26 +93,33 @@
     const countdownEl = document.getElementById('countdown');
   
     function updateCountdown() {
-    const now = new Date();
-    const diff = weddingDate - now;
+      const now = new Date();
+      const diff = weddingDate - now;
   
-    if (diff <= 0) {
-      countdownEl.textContent = 'The big day is here! 🎉';
-      clearInterval(timer);
-      return;
+      if (diff <= 0) {
+        countdownEl.textContent = 'The big day is here! 🎉';
+        clearInterval(timer);
+        return;
+      }
+  
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+  
+      const timeText =`${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+      const tailText = `until we say "I do" !!`;
+  
+      if (window.innerWidth <= 600) {
+        countdownEl.innerHTML = `${timeText}<br>${tailText}`;
+      } else {
+        countdownEl.textContent = `${timeText} ${tailText}`;
+      }
     }
   
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    countdownEl.textContent = `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds until we say "I do" !!`;  }
-  
-    // Update every second
     updateCountdown();
     const timer = setInterval(updateCountdown, 1000);
-  
+    
     // Grab the toggle button and the nav list
     const navToggle = document.querySelector('.nav-toggle');
     const navList   = document.getElementById('primary-nav');
