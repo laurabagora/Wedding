@@ -133,10 +133,13 @@
 
 @media (max-width: 600px) {
   .color-circles {
-    max-width: 260px;      
-    margin: 1.5rem auto 0;  
-    justify-content: center; 
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;  
+    gap: 1.5rem;             
+    margin: 1.5rem auto 0;
   }
+
 
   .color-circle {
     width: 45px;
