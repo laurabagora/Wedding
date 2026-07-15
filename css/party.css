@@ -108,6 +108,35 @@
   box-shadow: 0 8px 20px rgba(0,0,0,.15);
 }
 
+.cat-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.cat-profile img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-primary);
+  flex-shrink: 0;
+}
+
+.cat-profile h4 {
+  margin: 0;
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 1.15rem;
+}
+
+.cat-profile p {
+  margin: .25rem 0 0;
+  color: #666;
+  font-size: .95rem;
+}
+
 @media (max-width: 900px) {
   .roles-row.two,
   .roles-row.three {
@@ -126,4 +155,13 @@
   width: 150px;
   height: 150px;
 }
+}
+
+@media (max-width: 900px) {
+
+  .cat-profile {
+    justify-content: center;
+    text-align: left;
+  }
+
 }
