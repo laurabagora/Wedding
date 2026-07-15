@@ -7,7 +7,7 @@
   box-shadow: 0 8px 20px rgba(0,0,0,.08);
 }
 
-.schedule h1 {
+h3 {
   font-family: var(--font-heading);
   font-size: 2rem;
   color: var(--color-primary);
