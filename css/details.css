@@ -17,6 +17,18 @@
   gap: 3rem;
   flex-wrap: wrap;
   margin-top: 1.5rem;
+  position: relative; 
+}
+
+.color-groups::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;                   
+  transform: translate(-50%, -50%);
+  width: 1px;              
+  height: 50px;               
+  background-color: #d0d0d0;
 }
 
 .color-group {
@@ -195,11 +207,7 @@
     height: 45px;
   }
 
-  .color-group + .color-group {
-    padding-left: 0;
-  }
-
-  .color-group + .color-group::before {
+  .color-groups::before {
     display: none;
   }
 }
