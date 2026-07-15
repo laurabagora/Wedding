@@ -73,18 +73,34 @@
 }
 
 .countdown {
-  font-size: 1.2rem;  
+  font-size: 1.2rem;
 }
 
 @media (max-width: 900px) {
-  .hero-content { flex-direction: column; gap: 2rem; }
+  .hero-content { 
+    flex-direction: column; 
+    gap: 2rem; 
+  }
   .hero-text,
-  .hero-photo-wrapper { max-width: 100%; text-align: center; }
-  .hero-photo-wrapper img { width: 240px; height: 240px; border: 4px solid #0b2647; }
+  .hero-photo-wrapper { 
+    max-width: 100%; 
+    text-align: center; 
+  }
+  .hero-photo-wrapper img { 
+    width: 240px; 
+    height: 240px; 
+    border: 4px solid #0b2647; 
+  }
 }
 
 @media (max-width: 600px) {
-  .hero-photo-wrapper img { width: 180px; height: 180px; border: 3px solid #0b2647; }
-  .countdown { font-size: 0.85rem;  line-height: 1.3;   }
+  .hero-photo-wrapper img { 
+    width: 180px; 
+    height: 180px; 
+    border: 3px solid #0b2647; 
+  }
+  .countdown { 
+    font-size: 0.85rem;  
+    line-height: 1.3; 
+  }
 }
-
