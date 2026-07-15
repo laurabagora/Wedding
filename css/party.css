@@ -60,6 +60,15 @@
 .featured-role p {
   color: #000;             
 }
+.ring-bearers-card {
+  flex-direction: column-reverse;
+  text-align: center;
+}
+
+.ring-bearers-photo img {
+  width: 150px;
+  height: 150px;
+}
 
 @media (max-width: 900px) {
   .roles-row.two,
