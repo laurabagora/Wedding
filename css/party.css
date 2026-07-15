@@ -71,6 +71,12 @@
   padding: 2.5rem;
 }
 
+.ring-bearers-text p:first-of-type,
+.ring-bearers-text p:nth-of-type(2) {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
 .ring-bearers-text {
   flex: 1;
 }
