@@ -7,18 +7,23 @@
   box-shadow: 0 8px 20px rgba(0,0,0,.08);
 }
 
-h3 {
+.schedule-date {
   font-family: var(--font-heading);
   color: var(--color-primary);
+  font-size: 1.8rem;
+  margin-bottom: 0.2rem;
   text-align: center;
 }
 
-h2 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
+.schedule-day {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
   text-align: center;
-  text-size: 1rem;
-  margin-bottom: 1rem;
+  margin: 0 0 1.5rem;
+  opacity: 0.8;
 }
 
 .schedule-item {
