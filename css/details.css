@@ -79,6 +79,12 @@
   color: var(--color-primary);
   letter-spacing: .03em;
 }
+
+.color-group + .color-group {
+  border-left: 1px solid #d0d0d0; 
+  padding-left: 3rem;            
+}
+
 .flight-notice {
   max-width: 650px;
   margin: 0 auto 2rem;     
@@ -176,5 +182,10 @@
   .color-circle {
     width: 45px;
     height: 45px;
+  }
+
+    .color-group + .color-group {
+    border-left: none;
+    padding-left: 0;
   }
 }
