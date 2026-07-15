@@ -64,9 +64,17 @@
 }
 
 .ring-bearers-card {
-  padding: 1rem 2rem;
-  margin-bottom: 1.5rem; 
-  min-height: auto;
+  background: #fff;
+  color: #333;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+  transition: transform .25s ease, box-shadow .25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 210px;
 }
 
 .cats-row {
