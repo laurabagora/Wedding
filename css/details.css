@@ -27,7 +27,7 @@
   left: 50%;                   
   transform: translate(-50%, -50%);
   width: 1px;              
-  height: 50px;               
+  height: 50px;              /* adjust to taste */
   background-color: #d0d0d0;
 }
 
@@ -92,22 +92,6 @@
   letter-spacing: .03em;
 }
 
-.color-group + .color-group {
-  position: relative;
-  padding-left: 3rem;   
-}
-
-/* the short line itself */
-.color-group + .color-group::before {
-  content: "";
-  position: absolute;
-  left: 1.5rem;      
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;        
-  height: 50px;       
-  background-color: #d0d0d0;
-}
 .flight-notice {
   max-width: 650px;
   margin: 0 auto 2rem;     
