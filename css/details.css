@@ -31,7 +31,7 @@
 .color-circle.baby-blue { background: #A7C7E7; }
 .color-circle.med-blue  { background: #27415F; }
 .color-circle.navy-blue { background: var(--color-blue); }
-.color-circle.eucalyptus { background: #5F7A61; }
+.color-circle.olive { background: #7A9E7E; }
 
 .color-item {
   display: flex;
