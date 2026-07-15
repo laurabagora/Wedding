@@ -50,7 +50,7 @@
         
           <div class="form-row">
             <label>Will you be attending?</label>
-            <select name="attendance" required>
+            <<select id="attendance" name="attendance" required>
               <option value="">Please select</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -140,18 +140,101 @@
         createGuestFields(numberOfGuests);
       });
       
-      const submitButton = form.querySelector(".submit-btn");
-      form.addEventListener("submit", function(e){
-        e.preventDefault();
-        submitButton.disabled = true;
-        submitButton.classList.add("loading");
-        const data = new FormData(form);
-        fetch("https://script.google.com/macros/s/AKfycbzRQu-edxfQmr_kPi_iYrFkPJPw79cE9fxCY-JlrdZSecqGdGMxSzD-EDRDGKnOmUXH/exec", { method:"POST", body:data })
-          .then(()=>{ form.style.display="none"; thankYou.style.display="block";})
-          .catch(()=>{alert("Something went wrong. Please try again.");
-        submitButton.disabled=false;
-        submitButton.classList.remove("loading");});
-      });
+const submitButton = form.querySelector(".submit-btn");
+const attendanceSelect = document.getElementById("attendance");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  submitButton.disabled = true;
+  submitButton.classList.add("loading");
+
+  const data = new FormData(form);
+
+  fetch("https://script.google.com/macros/s/AKfycbzRQu-edxfQmr_kPi_iYrFkPJPw79cE9fxCY-JlrdZSecqGdGMxSzD-EDRDGKnOmUXH/exec", {
+    method: "POST",
+    body: data
+  })
+  .then(() => {
+
+    const attending = attendanceSelect.value;
+
+    if (attending === "Yes") {
+      thankYou.innerHTML = `
+        <h2>Thank You!</h2>
+        <p class="thank-you-main">
+          We are so excited to celebrate with you!
+        </p>
+
+        <p>
+          Your RSVP has been received, and we can't wait to share our special day with you.
+        </p>
+
+        <div class="contact-card">
+          <h3>Questions?</h3>
+          <p>Feel free to reach out anytime!</p>
+
+          <p>
+            <strong>Laura</strong><br>
+            <a href="mailto:laura.marie262@gmail.com">laura.marie262@gmail.com</a><br>
+            (520) 582-5067
+          </p>
+
+          <p>
+            <strong>Nathan</strong><br>
+            <a href="mailto:nathancatanach@gmail.com">nathancatanach@gmail.com</a><br>
+            (623) 466-3528
+          </p>
+        </div>
+      `;
+    } else {
+      thankYou.innerHTML = `
+        <h2>We'll Miss You!</h2>
+
+        <p class="thank-you-main">
+          Thank you for letting us know.
+        </p>
+
+        <p>
+          While we're sad you won't be able to celebrate with us, we truly appreciate you taking the time to RSVP.
+        </p>
+
+        <p>
+          If you'd still like to celebrate with us from afar, we'd be incredibly grateful if you'd take a look at our
+          <a href="registry.html">wedding registry</a>.
+        </p>
+
+        <div class="contact-card">
+          <h3>Stay in Touch</h3>
+
+          <p>
+            We hope to celebrate together another time!
+          </p>
+
+          <p>
+            <strong>Laura</strong><br>
+            <a href="mailto:laura.marie262@gmail.com">laura.marie262@gmail.com</a><br>
+            (520) 582-5067
+          </p>
+
+          <p>
+            <strong>Nathan</strong><br>
+            <a href="mailto:nathancatanach@gmail.com">nathancatanach@gmail.com</a><br>
+            (623) 466-3528
+          </p>
+        </div>
+      `;
+    }
+
+    form.style.display = "none";
+    thankYou.style.display = "block";
+  })
+  .catch(() => {
+    alert("Something went wrong. Please try again.");
+    submitButton.disabled = false;
+    submitButton.classList.remove("loading");
+  });
+});
       </script>
   </body>
 </html>
