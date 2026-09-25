@@ -4,23 +4,21 @@
     <meta charset="UTF-8" />
     <title>Laura &amp; Nathan — Wedding</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/overall.css" />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
 
   <body>
-    <nav class="nav">
+    <nav class="nav" aria-label="Main navigation">
       <div class="logo">
-        <a href="index.html">Our Wedding</a>
+        <a href="index.html" aria-label="Laura and Nathan, home">
+          <span class="logo-names">Nathan <span class="logo-amp">&amp;</span> Laura</span>
+          <span class="logo-date">06 · 19 · 27</span>
+        </a>
       </div>
-  
-      <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
-        ☰
-        <span class="visually-hidden">Menu</span>
-      </button>
-    
+      <button type="button" class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">☰</button>
       <ul class="nav-links" id="primary-nav">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="story.html">Our Story</a></li>
         <li><a href="events.html">Schedule</a></li>
         <li><a href="party.html">Bridal Party</a></li>
@@ -29,95 +27,127 @@
       </ul>
     </nav>
     
-  <header class="hero" id="home" role="banner">
+  <header class="hero" id="home">
     <div class="hero-content">
       <div class="hero-text">
-        <p class="hero-tagline">We’re getting married!</p>
-        <h1 class="hero-title">Laura Guerrero &amp; Nathan Catanach</h1>
-        <p class="hero-date">June 19, 2027<br>Melbourne, Florida</p>
-        <a href="events.html" class="btn-primary">View Wedding Schedule</a>
+        <p class="hero-eyebrow">You are Invited!</p>
+        <h1 class="hero-title">Nathan <span>&amp;</span> Laura</h1>
+        <p class="hero-tagline">are getting married</p>
+        <div class="hero-rule" aria-hidden="true"><span>✦</span></div>
+        <p class="hero-date"><strong>June 19, 2027</strong><span>Cocoa Beach, Florida</span></p>
+        <div class="hero-actions">
+          <a href="rsvp.html" class="btn-primary">RSVP Now</a>
+          <a href="events.html" class="hero-link">Explore the weekend <span aria-hidden="true">→</span></a>
+        </div>
       </div>
       <div class="hero-photo-wrapper">
-        <img src="photos/photo1.jpeg" alt="Laura and Nathan at the beach" loading="lazy" />
+        <div class="hero-photo-frame">
+          <img src="photos/photo1.jpeg" alt="Laura and Nathan together at the beach" />
+        </div>
       </div>
     </div>
   </header>
-    
-  <div class="welcome-section">
-    <br>
-    <a href="rsvp.html" class="btn-primary">RSVP Now</a>
-    <br></br>
-    <div class="countdown-wrapper">
-      <div id="countdown" class="countdown"></div>
-    </div>
-  </div>
-  
-  <section class="section">
-    <div class="section-inner">
-      <div class="card-grid">
-        <article class="card">
-          <h3>Our Story</h3>
-          <p>How we met, fell in love, and got engaged.</p>
-          <a href="story.html" class="btn-primary">Read More</a>
-        </article>
-  
-        <article class="card">
-          <h3>Bridal Party</h3>
-          <p>Meet our closest friends and family standing with us.</p>
-          <a href="party.html" class="btn-primary">View Bridal Party</a>
-        </article>
-  
-        <article class="card">
-          <h3>Schedule</h3>
-          <p>View the wedding weekend schedule below as what to expect.</p>
-          <a href="events.html" class="btn-primary">View Our Schedule</a>
-        </article> 
-  
-        <article class="card">
-          <h3>Details</h3>
-          <p>Color schemes, dress codes, and what to wear for the big day.</p>
-          <a href="details.html" class="btn-primary">Learn More</a>
-        </article>
-  
+
+  <main>
+    <section class="countdown-section" aria-labelledby="countdown-heading">
+      <div class="countdown-inner">
+        <div class="countdown-copy">
+          <p class="eyebrow">The countdown is on</p>
+          <h2 id="countdown-heading">Until we say “I do”</h2>
+        </div>
+        <div id="countdown" class="countdown" aria-label="Time until our wedding">
+          <span class="countdown-loading">June 19, 2027</span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="welcome-section section">
+      <div class="section-inner">
+        <p class="eyebrow">A note from us</p>
+        <h2>We can’t wait to celebrate with you</h2>
+        <p>On June 19, 2027, we’ll say “I do” on the beach in Cocoa Beach, Florida, then celebrate together at the beach house. Having the people we love there will make the day even more special.</p>
+        <a href="story.html" class="text-link">Read our story <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="weekend-section section" aria-labelledby="weekend-heading">
+      <div class="section-inner">
+        <p class="eyebrow">The wedding weekend</p>
+        <h2 id="weekend-heading">A weekend to remember</h2>
+        <p class="section-intro">Make yourself at home, join us for a little beach time, and celebrate with us at our favorite place.</p>
+        <div class="weekend-grid">
+          <article class="weekend-card">
+            <p class="card-kicker">Friday · June 18</p>
+            <h3>Let the fun begin</h3>
+            <p>Wiffle ball, beach activities, and a taco truck at the house.</p>
+          </article>
+          <article class="weekend-card weekend-card-featured">
+            <p class="card-kicker">Saturday · June 19</p>
+            <h3>The big day</h3>
+            <p>Arrive by 5:30 PM for our 6:00 PM beach ceremony, with dinner and dancing to follow.</p>
+          </article>
+          <article class="weekend-card">
+            <p class="card-kicker">Sunday · June 20</p>
+            <h3>One more morning</h3>
+            <p>Father's Day breakfast, hugs, and safe travels home.</p>
+          </article>
+        </div>
+        <a href="events.html" class="btn-primary">See the Full Schedule</a>
+      </div>
+    </section>
+
+    <section class="explore-section section" aria-labelledby="explore-heading">
+      <div class="section-inner">
+        <p class="eyebrow">Everything in one place</p>
+        <h2 id="explore-heading">Find your way around</h2>
+        <div class="explore-grid">
+          <a class="explore-card" href="story.html"><span class="explore-number">01</span><h3>Our Story</h3><p>How we found each other and made a life together.</p><span class="explore-arrow" aria-hidden="true">↗</span></a>
+          <a class="explore-card" href="party.html"><span class="explore-number">02</span><h3>Bridal Party</h3><p>Meet the people standing beside us.</p><span class="explore-arrow" aria-hidden="true">↗</span></a>
+          <a class="explore-card" href="details.html"><span class="explore-number">03</span><h3>Guest Details</h3><p>Venue, attire, food, and arrival information.</p><span class="explore-arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-section">
+      <p class="eyebrow">Save your seat</p>
+      <h2>We hope you'll join us</h2>
+      <p>Please let us know by March 30, 2027.</p>
+      <a href="rsvp.html" class="btn-primary">RSVP</a>
+    </section>
+  </main>
   
   <footer class="footer">
-    <p>The Future Catanachs Est. 2027</p>
-  </footer>
+      <div class="footer-inner">
+        <p class="footer-monogram" aria-hidden="true">N <span>&amp;</span> L</p>
+        <p class="footer-names">Nathan &amp; Laura</p>
+        <p class="footer-place">June 19, 2027 · Cocoa Beach, Florida</p>
+        <div class="footer-bottom">Made with love for our big day</div>
+      </div>
+    </footer>
   
   <script>
-    const weddingDate = new Date('2027-06-19T16:00:00');
+    const weddingDate = new Date('2027-06-19T18:00:00-04:00');
     const countdownEl = document.getElementById('countdown');
-  
+    let countdownTimer;
     function updateCountdown() {
-      const now = new Date();
-      const diff = weddingDate - now;
-  
-      if (diff <= 0) {
-        countdownEl.textContent = 'The big day is here! 🎉';
-        clearInterval(timer);
+      const remaining = Math.max(0, weddingDate - Date.now());
+      if (remaining === 0) {
+        countdownEl.textContent = 'The big day is here! ♡';
+        clearInterval(countdownTimer);
         return;
       }
-  
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-  
-      const timeText =`${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
-      const tailText = `until we say "I do" !!`;
-  
-      if (window.innerWidth <= 600) {
-        countdownEl.innerHTML = `${timeText}<br>${tailText}`;
-      } else {
-        countdownEl.textContent  = `${timeText} ${tailText}`;
-      }
+      const units = [
+        ['Days', Math.floor(remaining / 86400000)],
+        ['Hours', Math.floor(remaining / 3600000) % 24],
+        ['Minutes', Math.floor(remaining / 60000) % 60],
+        ['Seconds', Math.floor(remaining / 1000) % 60]
+      ];
+      countdownEl.innerHTML = units.map(([label, value]) =>
+        `<span class="countdown-unit"><strong>${String(value).padStart(2, '0')}</strong><span>${label}</span></span>`
+      ).join('');
     }
-  
     updateCountdown();
-    const timer = setInterval(updateCountdown, 1000);
+    countdownTimer = setInterval(updateCountdown, 1000);
     
     // Grab the toggle button and the nav list
     const navToggle = document.querySelector('.nav-toggle');
@@ -128,6 +158,7 @@
         const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
         navToggle.setAttribute('aria-expanded', !expanded);
         navList.classList.toggle('show');
+        navToggle.setAttribute('aria-label', expanded ? 'Open menu' : 'Close menu');
         });
   
         // Close the menu when a link is clicked (useful on single‑page anchors)

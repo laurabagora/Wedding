@@ -1,72 +1,218 @@
-.schedule {
-  max-width: 850px;
-  margin: 3rem auto;
+/* ========================================
+   TRAVEL NOTE
+======================================== */
+
+.travel-note {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  padding: 2rem 2.5rem;
   background: #fff;
+  border: 1px solid var(--color-accent);
   border-radius: 16px;
-  padding: 2.5rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
 }
 
-.schedule-date {
-  font-family: var(--font-heading);
+.travel-note-label {
+  margin: 0 0 .4rem;
   color: var(--color-primary);
-  font-size: 1.6rem;
-  margin-bottom: 0.2rem;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.travel-note h2 {
+  margin: 0 0 1rem;
+  color: var(--color-blue);
+  font-family: var(--font-heading);
+}
+
+.travel-note p {
+  max-width: 650px;
+  margin: .5rem auto;
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   SCHEDULE
+======================================== */
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.schedule-item {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+}
+
+
+/* ========================================
+   DATE
+======================================== */
+
+.schedule-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: var(--color-primary);
+  color: #fff;
   text-align: center;
 }
 
 .schedule-day {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  letter-spacing: 0.2em;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--color-primaray);
-  text-align: center;
+}
+
+.schedule-number {
+  margin: .25rem 0;
+  font-family: var(--font-heading);
+  font-size: 3.25rem;
+  line-height: 1;
+}
+
+.schedule-month {
+  font-size: .85rem;
+}
+
+
+/* ========================================
+   SCHEDULE CONTENT
+======================================== */
+
+.schedule-content {
+  padding: 2rem 2.25rem;
+}
+
+.schedule-content > h2 {
   margin: 0 0 1.5rem;
-  opacity: 0.8;
-}
-
-.schedule-item {
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-accent);
-}
-
-.schedule-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-.schedule-time {
-  font-weight: 600;
-  color: var(--color-primary);
-  min-width: 8rem;
-}
-
-.schedule-desc {
-  color: var(--color-text);
+  color: var(--color-blue);
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
 }
 
 .schedule-row {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  margin: .6rem 0;
+  display: grid;
+  grid-template-columns: 95px 1fr;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  border-top: 1px solid #e7ecef;
 }
 
-.schedule-divider {
-  height: 2px;
-  background: var(--color-primary);
-  margin: 2rem 0;
-  opacity: .7;
+.schedule-content > h2 + .schedule-row,
+.wedding-day-label + h2 + .schedule-row {
+  border-top: 0;
+  padding-top: 0;
 }
 
-@media (max-width: 600px) {
-  .schedule-row {
-    flex-direction: column;
-    gap: .3rem;
+.schedule-time {
+  color: var(--color-primary);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.schedule-desc h3 {
+  margin: 0 0 .25rem;
+  color: var(--color-blue);
+  font-size: 1rem;
+}
+
+.schedule-desc p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.no-time {
+  grid-template-columns: 1fr;
+}
+
+
+/* ========================================
+   WEDDING DAY
+======================================== */
+
+.featured-day {
+  border: 2px solid var(--color-primary);
+}
+
+.featured-day .schedule-date {
+  background: var(--color-blue);
+}
+
+.wedding-day-label {
+  margin: 0 0 .25rem;
+  color: var(--color-primary);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .travel-note {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
   }
+
+  .schedule-item {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-date {
+    flex-direction: row;
+    gap: .5rem;
+    padding: 1rem;
+  }
+
+  .schedule-number {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .schedule-content {
+    padding: 1.5rem;
+  }
+
+  .schedule-row {
+    grid-template-columns: 80px 1fr;
+    gap: .75rem;
+  }
+
+  .no-time {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 450px) {
+
+  .schedule-row {
+    grid-template-columns: 1fr;
+    gap: .25rem;
+  }
+
   .schedule-time {
-    margin-bottom: .2rem;
+    margin-bottom: .15rem;
   }
 }

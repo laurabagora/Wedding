@@ -10,7 +10,8 @@
   --color-muted:         #777777;
   --font-body:   system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-heading:"Georgia", "Times New Roman", serif;
-  --max-width: 900px;
+  --max-width: 1000px;
+  --shadow: 0 12px 32px rgba(0, 51, 102, .09);
 } 
 
 *,*::before,*::after { 
@@ -42,7 +43,7 @@ body {
 }
 
 .section {
-  padding: 3rem 1.5rem;
+  padding: clamp(2.5rem, 5vw, 4.5rem) 1.5rem;
   background: var(--color-bg);
 }
 
@@ -67,13 +68,43 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.footer {
+ .footer {
+  position: relative;
+  margin-top: auto;
+  padding: 3rem 1.5rem 0;
   background: var(--color-blue);
   color: #fff;
   text-align: center;
-  padding: 1rem;
-  font-size: .9rem;
-  margin-top: auto;  
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
+}
+.footer-inner { max-width: 950px; margin: auto; }
+.footer-monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px; height: 76px;
+  margin: 0 0 .75rem;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 50%;
+  font: 1.25rem var(--font-heading);
+  letter-spacing: .04em;
+}
+.footer-monogram span { color: var(--color-accent); padding: 0 .24rem; }
+.footer-names { margin: 0; font: 1.75rem var(--font-heading); }
+.footer-place { margin: .25rem 0 1rem; letter-spacing: .07em; font-size: .85rem; }
+.footer-note { margin: 0 0 2.25rem; color: #d9e8da; font: italic 1.05rem var(--font-heading); }
+.footer-bottom {
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255,255,255,.22);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  color: #e6edf2;
 }
 
 @media print {
@@ -82,72 +113,79 @@ body {
 }
 
 .nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  background: #fff;
-  border-bottom: 2px solid var(--color-accent);
-  position: relative;
+  gap: 1.5rem;
+  min-height: 84px;
+  padding: .7rem max(1.5rem, calc((100vw - 1180px)/2));
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid #d8e3e8;
+  box-shadow: 0 4px 18px rgba(0,51,102,.06);
 }
-
 .logo a {
-  font-family: var(--font-heading);
-  color: var(--color-blue);
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.logo a:hover { color: var(--color-primary); }
-
-.nav-links {
-  list-style: none;
   display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links a {
+  flex-direction: column;
+  width: max-content;
+  text-align: center;
   color: var(--color-blue);
   text-decoration: none;
-  font-size: .9rem;
+  line-height: 1.15;
+}
+.logo-names { font: 1.38rem var(--font-heading); white-space: nowrap; }
+.logo-amp { font-style: italic; color: var(--color-primary); }
+.logo-date {
+  margin-top: .3rem;
+  color: var(--color-primary);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .25em;
+}
+.nav-links { display: flex; align-items: center; gap: clamp(.7rem, 1.4vw, 1.4rem); list-style: none; margin: 0; padding: 0; }
+.nav-links a {
+  display: inline-block;
+  padding: .55rem .1rem;
+  border-bottom: 2px solid transparent;
+  color: var(--color-blue);
+  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: .08em;
+  font-size: .78rem;
+  font-weight: 650;
+  white-space: nowrap;
+  transition: color .2s, border-color .2s;
 }
-
-.nav-links a:hover { 
-  color: var(--color-primary); 
-}
-
+.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--color-primary); border-color: var(--color-primary); }
 .nav-toggle {
   display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
+  width: 44px; height: 44px;
+  border: 1px solid #d8e3e8;
+  border-radius: 10px;
+  background: #fff;
   color: var(--color-blue);
+  font-size: 1.4rem;
+  cursor: pointer;
 }
-
-.nav-toggle:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-@media (max-width: 900px) {
-  .nav-toggle { display: block; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+@media (max-width: 950px) {
+  .nav-toggle { display: inline-grid; place-items: center; }
   .nav-links {
-    flex-direction: column;
-    gap: .5rem;
-    background: #fff;
+    display: none;
     position: absolute;
     top: 100%; left: 0; right: 0;
-    padding: .8rem 1rem;
-    border-bottom: 2px solid var(--color-accent);
-    display: none;
-    z-index: 1000;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: .6rem 1.5rem 1rem;
+    background: #fff;
+    border-bottom: 1px solid #d8e3e8;
+    box-shadow: 0 10px 20px rgba(0,51,102,.08);
   }
   .nav-links.show { display: flex; }
+  .nav-links a { display: block; padding: .65rem .25rem; }
 }
 
 .btn-primary {
@@ -161,18 +199,19 @@ body {
   letter-spacing: .1em;
   border: none;
   cursor: pointer;
-  transition: background .2s ease;
+  transition: background .2s ease, transform .2s ease;
 }
 
 .btn-primary:hover { 
-  background: var(--color-primary-hov); 
+  background: var(--color-dark);
+  transform: translateY(-2px); 
 }
 
 .card {
   background: #fff;
-  border-radius: .5rem;
+  border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,.07);
+  box-shadow: var(--shadow);
 }
 
 .card h3 { 
@@ -181,15 +220,14 @@ body {
 
 .subpage-header {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2.75rem 1rem 2rem;
   max-width: 700px;
-  margin: 2rem auto 0.1rem;
-  border-bottom: 1px solid var(--color-accent);
+  margin: 0 auto;
   font-family: var(--font-heading);
 }
 
 .subpage-header h1 {
-  font-size: 2.5rem;
+  font-size: clamp(2.2rem, 5vw, 3.1rem);
   margin: 0;
   color: var(--color-blue);
   font-weight: 600;
@@ -210,3 +248,12 @@ hr.divider {
   border-radius: 2px;         
   opacity: 0.8;                  
 }
+
+.subpage-header::after {
+  content: "✦";
+  display: block;
+  margin: 1rem auto 0;
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }

@@ -1,149 +1,29 @@
-.party-group {
-  margin-bottom: 3rem;
-}
-
-.roles-row {
-  display: grid;
-  gap: 1.75rem;
-  margin-bottom: 2rem;
-}
-
-.roles-row.two {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.roles-row.three {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.role-card {
-  background: #fff;
-  color: #333;
-  border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
-  transition: transform .25s ease, box-shadow .25s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 210px;
-}
-
-.role-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, .15);
-}
-
-.role-card h3 {
-  margin: 0 0 1rem;
-  color: var(--color-primary);
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-}
-
-.role-card p {
-  margin: .35rem 0;
-  line-height: 1.5;
-  font-size: 1rem;
-}
-
-.featured-role {
-  background: #A3B18A;
-  color: #fff;
-  min-height: 240px;
-}
-
-.featured-role h3 {
-  color: #fff;
-  font-size: 1.75rem;
-}
-
-.featured-role p {
-  color: #000;
-}
-
-.ring-bearers-card {
-  background: #fff;
-  color: #333;
-  border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
-  transition: transform .25s ease, box-shadow .25s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 210px;
-  margin-bottom: -1rem
-}
-
-.cats-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4rem;
-  margin: 0.75rem 0 0;
-  flex-wrap: wrap;
-}
-
-.cat-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.cat-card img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid var(--color-primary);
-  flex-shrink: 0;
-}
-
-.cat-card h4 {
-  margin: 0;
-  color: var(--color-primary);
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-}
-
-@media (max-width: 900px) {
-
-  .roles-row.two,
-  .roles-row.three {
-    grid-template-columns: 1fr;
-  }
-
-  .role-card {
-    min-height: auto;
-  }
-
-  .ring-bearers-card {
-    text-align: center;
-    padding: 2rem;
-  }
-
-  .cat-profile {
-    flex-direction: column;
-    text-align: center;
-    gap: .75rem;
-  }
-
-  .cat-profile img {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-@media (max-width: 900px) {
-  .cats-row {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .cat-card {
-    justify-content: center;
-  }
-}
+.party-intro { position: relative; overflow: hidden; background: linear-gradient(135deg,#e8f1ee,#e6f1f8); text-align: center; }
+.party-intro::before, .party-intro::after { content: ""; position: absolute; width: 25rem; height: 25rem; border: 1px solid rgba(113,129,86,.22); border-radius: 50%; pointer-events: none; }
+.party-intro::before { top: -19rem; left: -9rem; box-shadow: 0 0 0 70px rgba(255,255,255,.14); }
+.party-intro::after { right: -12rem; bottom: -21rem; box-shadow: 0 0 0 70px rgba(255,255,255,.14); }
+.party-intro .section-inner { position: relative; max-width: 680px; }
+.party-eyebrow, .person-role { margin: 0 0 .8rem; color: var(--color-primary); font-size: .76rem; font-weight: 750; letter-spacing: .18em; text-transform: uppercase; }
+.party-intro h2, .party-section h2 { margin: 0 0 1.2rem; color: var(--color-blue); font: normal clamp(2rem,4vw,3rem)/1.2 var(--font-heading); }
+.party-intro p:last-child { margin: 0; color: #455d69; font-size: 1.08rem; line-height: 1.8; }
+.party-section { text-align: center; }
+.party-section h2 { margin-bottom: 2.4rem; }
+.party-grid { display: grid; gap: 1.4rem; }
+.couple-grid, .two-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.three-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.person-card { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 160px; padding: 2rem 1.5rem; background: #fff; border: 1px solid #dfe9e7; border-radius: 18px; box-shadow: var(--shadow); }
+.person-role { display: block; margin-bottom: .8rem; }
+.person-card h3 { margin: 0; color: var(--color-blue); font: normal clamp(1.4rem,2.3vw,1.9rem)/1.3 var(--font-heading); }
+.name-join { font-style: italic; color: var(--color-primary); }
+.couple-card { min-height: 235px; background: var(--color-blue); border-color: var(--color-blue); }
+.couple-card .person-role { color: #c9dcaf; }
+.couple-card h3 { color: #fff; font-size: clamp(1.8rem,3vw,2.3rem); }
+.card-flourish { margin-top: 1.2rem; color: #c9dcaf; }
+.attendants-section, .cat-section { background: #edf4f5; }
+.cat-grid { display: flex; flex-wrap: wrap; align-items: start; justify-content: center; gap: clamp(1.5rem,5vw,5rem); }
+.cat-card { width: min(100%,260px); margin: 0; }
+.cat-card img { display: block; width: min(100%,210px); aspect-ratio: 1; margin: 0 auto 1.2rem; object-fit: cover; border: 8px solid #fff; border-radius: 50%; box-shadow: var(--shadow); }
+.cat-card h3 { margin: 0; color: var(--color-blue); font: normal 1.65rem var(--font-heading); }
+.family-section { background: linear-gradient(135deg,#fff,#f4f9f8); }
+@media(max-width:700px) { .three-grid { grid-template-columns: 1fr; } .party-section h2 { margin-bottom: 1.8rem; } }
+@media(max-width:560px) { .couple-grid, .two-grid { grid-template-columns: 1fr; } .person-card { min-height: 140px; } .couple-card { min-height: 185px; } .cat-grid { gap: 2.5rem; } }
