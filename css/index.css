@@ -5,10 +5,10 @@
   color: var(--color-blue);
 }
 .hero-shell {
-  display: inline-block;
-  font-size: 1.35rem;
-  line-height: 1;
-  color: var(--color-primary);
+  flex: 0 0 28px;
+  width: 28px;
+  height: 25px;
+  margin: 0;
 }
 .hero::before {
   content: "";
