@@ -58,8 +58,22 @@
   text-align: center;
 }
 
+.song-eyebrow {
+  margin: 0 0 1.8rem;
+  color: #c9dcaf;
+  font-size: .75rem;
+  font-weight: 750;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.spotify-embed {
+  width: 50%;
+  max-width: 100%;
+}
+
 @media (max-width: 600px) {
-  .spotify-container iframe {
+  .spotify-embed {
     width: 90%;
   }
 }
