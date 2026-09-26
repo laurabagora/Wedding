@@ -146,3 +146,14 @@
   .countdown-unit { min-width: 56px; }
   .countdown { gap: .25rem; }
 }
+
+.card-shell {
+  display: block;
+  width: 30px;
+  height: 27px;
+  background-color: var(--color-primary);
+
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'%3E%3Cpath d='M32 51C21 51 11 47 6 41C4 38 5 34 9 34C7 28 9 24 14 24C13 18 17 15 22 17C23 11 27 8 32 13C37 8 41 11 42 17C47 15 51 18 50 24C55 24 57 28 55 34C59 34 60 38 58 41C53 47 43 51 32 51ZM32 14V46M23 18L28 46M14 25L24 46M41 18L36 46M50 25L40 46M8 35L20 46M56 35L44 46' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'%3E%3Cpath d='M32 51C21 51 11 47 6 41C4 38 5 34 9 34C7 28 9 24 14 24C13 18 17 15 22 17C23 11 27 8 32 13C37 8 41 11 42 17C47 15 51 18 50 24C55 24 57 28 55 34C59 34 60 38 58 41C53 47 43 51 32 51ZM32 14V46M23 18L28 46M14 25L24 46M41 18L36 46M50 25L40 46M8 35L20 46M56 35L44 46' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
