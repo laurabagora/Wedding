@@ -191,9 +191,7 @@
   font-size: .65rem;
 }
 
-/* Phones */
 @media (max-width: 600px) {
-
   .our-song {
     padding: 3.5rem 1.25rem;
   }
@@ -206,16 +204,10 @@
   .song-info {
     text-align: left;
   }
-}
 
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-
-  .sound-wave span {
-    animation: none;
-  }
-
-  .song-button {
-    transition: none;
+  .spotify-container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
