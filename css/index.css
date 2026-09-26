@@ -4,6 +4,12 @@
   background: linear-gradient(115deg, #f1f5f2 0%, #e8f2f5 55%, #dbeaf3 100%);
   color: var(--color-blue);
 }
+.hero-shell {
+  display: inline-block;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--color-primary);
+}
 .hero::before {
   content: "";
   position: absolute;
