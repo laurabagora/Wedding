@@ -1,11 +1,5 @@
-.party-intro { position: relative; overflow: hidden; background: linear-gradient(135deg,#e8f1ee,#e6f1f8); text-align: center; }
-.party-intro::before, .party-intro::after { content: ""; position: absolute; width: 25rem; height: 25rem; border: 1px solid rgba(113,129,86,.22); border-radius: 50%; pointer-events: none; }
-.party-intro::before { top: -19rem; left: -9rem; box-shadow: 0 0 0 70px rgba(255,255,255,.14); }
-.party-intro::after { right: -12rem; bottom: -21rem; box-shadow: 0 0 0 70px rgba(255,255,255,.14); }
-.party-intro .section-inner { position: relative; max-width: 680px; }
 .party-eyebrow, .person-role { margin: 0 0 .8rem; color: var(--color-primary); font-size: .76rem; font-weight: 750; letter-spacing: .18em; text-transform: uppercase; }
-.party-intro h2, .party-section h2 { margin: 0 0 1.2rem; color: var(--color-blue); font: normal clamp(2rem,4vw,3rem)/1.2 var(--font-heading); }
-.party-intro p:last-child { margin: 0; color: #455d69; font-size: 1.08rem; line-height: 1.8; }
+.party-section h2 { margin: 0 0 1.2rem; color: var(--color-blue); font: normal clamp(2rem,4vw,3rem)/1.2 var(--font-heading); }
 .party-section { text-align: center; }
 .party-section h2 { margin-bottom: 2.4rem; }
 .party-grid { display: grid; gap: 1.4rem; }
@@ -18,7 +12,7 @@
 .couple-card { min-height: 235px; background: var(--color-blue); border-color: var(--color-blue); }
 .couple-card .person-role { color: #c9dcaf; }
 .couple-card h3 { color: #fff; font-size: clamp(1.8rem,3vw,2.3rem); }
-.card-flourish { margin-top: 1.2rem; color: #c9dcaf; }
+
 .attendants-section, .cat-section { background: #edf4f5; }
 .cat-grid { display: flex; flex-wrap: wrap; align-items: start; justify-content: center; gap: clamp(1.5rem,5vw,5rem); }
 .cat-card { width: min(100%,260px); margin: 0; }
@@ -27,3 +21,16 @@
 .family-section { background: linear-gradient(135deg,#fff,#f4f9f8); }
 @media(max-width:700px) { .three-grid { grid-template-columns: 1fr; } .party-section h2 { margin-bottom: 1.8rem; } }
 @media(max-width:560px) { .couple-grid, .two-grid { grid-template-columns: 1fr; } .person-card { min-height: 140px; } .couple-card { min-height: 185px; } .cat-grid { gap: 2.5rem; } }
+
+
+.card-shell {
+  display: block;
+  width: 30px;
+  height: 27px;
+  margin-top: 1.2rem;
+  background-color: #c9dcaf;
+
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'%3E%3Cpath d='M32 51C21 51 11 47 6 41C4 38 5 34 9 34C7 28 9 24 14 24C13 18 17 15 22 17C23 11 27 8 32 13C37 8 41 11 42 17C47 15 51 18 50 24C55 24 57 28 55 34C59 34 60 38 58 41C53 47 43 51 32 51ZM32 14V46M23 18L28 46M14 25L24 46M41 18L36 46M50 25L40 46M8 35L20 46M56 35L44 46' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'%3E%3Cpath d='M32 51C21 51 11 47 6 41C4 38 5 34 9 34C7 28 9 24 14 24C13 18 17 15 22 17C23 11 27 8 32 13C37 8 41 11 42 17C47 15 51 18 50 24C55 24 57 28 55 34C59 34 60 38 58 41C53 47 43 51 32 51ZM32 14V46M23 18L28 46M14 25L24 46M41 18L36 46M50 25L40 46M8 35L20 46M56 35L44 46' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}

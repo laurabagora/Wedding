@@ -90,12 +90,12 @@
 .countdown-unit span { font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: #d6e4ed; }
 .countdown-loading { font-family: var(--font-heading); }
 .welcome-section { text-align: center; background: #fff; }
-.welcome-section .section-inner { max-width: 720px; }
+.welcome-section .section-inner { max-width: 800px; }
 .welcome-section h2, .weekend-section h2, .explore-section h2, .closing-section h2 {
   margin: 0 0 1.2rem; color: var(--color-blue);
   font: normal clamp(2rem,4vw,3.1rem)/1.2 var(--font-heading);
 }
-.welcome-section p:not(.eyebrow) { margin: 0 auto 1.6rem; font-size: 1.07rem; line-height: 1.8; color: #425664; }
+.welcome-section p:not(.eyebrow) { margin: 0 auto 1.5rem; font-size: 1.07rem; line-height: 1.8; color: #425664; }
 .weekend-section { background: #edf4f5; text-align: center; }
 .section-intro { max-width: 650px; margin: 0 auto 2.4rem; color: #4c626e; }
 .weekend-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.3rem; margin-bottom: 2.6rem; text-align: left; }

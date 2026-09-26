@@ -1,11 +1,6 @@
-.story-intro { position: relative; overflow: hidden; background: linear-gradient(135deg,#e8f1ee,#e8f2f8); text-align: center; }
-.story-intro::before, .story-intro::after { content: ""; position: absolute; width: 23rem; height: 23rem; border: 1px solid rgba(113,129,86,.24); border-radius: 50%; pointer-events: none; }
-.story-intro::before { top: -17rem; left: -8rem; box-shadow: 0 0 0 65px rgba(255,255,255,.12); }
-.story-intro::after { bottom: -19rem; right: -6rem; box-shadow: 0 0 0 55px rgba(255,255,255,.16); }
-.story-intro-inner { position: relative; max-width: 720px; padding: 1rem 0; }
 .story-eyebrow, .bio-label, .chapter-date { color: var(--color-primary); font-size: .75rem; font-weight: 750; letter-spacing: .17em; text-transform: uppercase; }
 .story-eyebrow { margin: 0 0 .8rem; }
-.story-intro h2, .meet-section h2, .chapters-section h2, .collage-section h2, .story-cta h2 { margin: 0 0 1.2rem; color: var(--color-blue); font: normal clamp(2rem,4vw,3.1rem)/1.2 var(--font-heading); }
+.meet-section h2, .chapters-section h2, .collage-section h2, .story-cta h2 { margin: 0 0 1.2rem; color: var(--color-blue); font: normal clamp(2rem,4vw,3.1rem)/1.2 var(--font-heading); }
 .story-intro p:not(.story-eyebrow) { max-width: 620px; margin: 0 auto 1.8rem; color: #455d69; font-size: 1.08rem; line-height: 1.8; }
 .story-jump { color: var(--color-blue); font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--color-primary); padding-bottom: .3rem; }
 .story-jump span { margin-left: .4rem; }
