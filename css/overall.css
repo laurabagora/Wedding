@@ -29,10 +29,9 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
-  display: flex;
+  display: flex;            
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 84px; /* or a bit more to match nav height */
 }
 
 .visually-hidden, .sr-only {
@@ -70,11 +69,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-/* ========================================
-   FOOTER (blue main, green/white accents)
-======================================== */
-
-.footer {
+ .footer {
   position: relative;
   margin-top: auto;
   padding: 3rem 1.5rem 0;
@@ -87,12 +82,7 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 6px;
-  background: linear-gradient(
-    90deg,
-    #ffffff,
-    var(--color-primary),
-    #ffffff
-  );
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
 }
 .footer-inner { max-width: 950px; margin: auto; }
 .footer-monogram {
@@ -106,14 +96,14 @@ body {
   font: 1.25rem var(--font-heading);
   letter-spacing: .04em;
 }
-.footer-monogram span { color: var(--color-primary); padding: 0 .24rem; }
+.footer-monogram span { color: var(--color-accent); padding: 0 .24rem; }
 
 .footer-shell {
   display: block;
   width: 28px;
   height: 25px;
   margin: .8rem auto 1.5rem;
-  background-color:var(--color-text);
+  background-color: var(--color-accent);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'%3E%3Cpath d='M32 51C21 51 11 47 6 41C4 38 5 34 9 34C7 28 9 24 14 24C13 18 17 15 22 17C23 11 27 8 32 13C37 8 41 11 42 17C47 15 51 18 50 24C55 24 57 28 55 34C59 34 60 38 58 41C53 47 43 51 32 51ZM32 14V46M23 18L28 46M14 25L24 46M41 18L36 46M50 25L40 46M8 35L20 46M56 35L44 46' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'%3E%3Cpath d='M32 51C21 51 11 47 6 41C4 38 5 34 9 34C7 28 9 24 14 24C13 18 17 15 22 17C23 11 27 8 32 13C37 8 41 11 42 17C47 15 51 18 50 24C55 24 57 28 55 34C59 34 60 38 58 41C53 47 43 51 32 51ZM32 14V46M23 18L28 46M14 25L24 46M41 18L36 46M50 25L40 46M8 35L20 46M56 35L44 46' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
 }
@@ -134,16 +124,9 @@ body {
   .hero { background: none; color: #000; }
 }
 
-/* ========================================
-   NAVIGATION / HEADER – blue primary
-======================================== */
-
 .nav {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -151,48 +134,34 @@ body {
   gap: 1.5rem;
   min-height: 84px;
   padding: .7rem var(--page-edge);
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 51, 102, 0.96),
-    rgba(0, 51, 102, 0.90)
-  );
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 4px 18px rgba(0,51,102,.25);
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid #d8e3e8;
+  box-shadow: 0 4px 18px rgba(0,51,102,.06);
 }
-
 .logo a {
   display: flex;
   flex-direction: column;
   width: max-content;
   text-align: center;
-  color: #fff;
+  color: var(--color-blue);
   text-decoration: none;
   line-height: 1.15;
 }
 .logo-names { font: 1.38rem var(--font-heading); white-space: nowrap; }
-.logo-amp { font-style: italic; color: var(--color-primary); } /* green accent */
+.logo-amp { font-style: italic; color: var(--color-primary); }
 .logo-date {
   margin-top: .3rem;
-  color: #fff;
+  color: var(--color-primary);
   font-size: .66rem;
   font-weight: 700;
   letter-spacing: .25em;
-  opacity: .85;
 }
-
-.nav-links { 
-  display: flex; 
-  align-items: center; 
-  gap: clamp(.7rem, 1.4vw, 1.4rem); 
-  list-style: none; 
-  margin: 0; 
-  padding: 0; 
-}
+.nav-links { display: flex; align-items: center; gap: clamp(.7rem, 1.4vw, 1.4rem); list-style: none; margin: 0; padding: 0; }
 .nav-links a {
   display: inline-block;
   padding: .55rem .1rem;
   border-bottom: 2px solid transparent;
-  color: #fff;
+  color: var(--color-blue);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: .08em;
@@ -201,32 +170,18 @@ body {
   white-space: nowrap;
   transition: color .2s, border-color .2s;
 }
-.nav-links a:hover, 
-.nav-links a[aria-current="page"] { 
-  color: var(--color-primary);      /* green hover */
-  border-color: var(--color-primary); 
-}
-
+.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--color-primary); border-color: var(--color-primary); }
 .nav-toggle {
   display: none;
   width: 44px; height: 44px;
-  border: 1px solid rgba(255,255,255,.45);
+  border: 1px solid #d8e3e8;
   border-radius: 10px;
   background: #fff;
   color: var(--color-blue);
   font-size: 1.4rem;
   cursor: pointer;
 }
-
-a:focus-visible, 
-button:focus-visible, 
-input:focus-visible, 
-select:focus-visible, 
-textarea:focus-visible { 
-  outline: 3px solid var(--color-blue); 
-  outline-offset: 3px; 
-}
-
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
 @media (max-width: 950px) {
   .nav-toggle { display: inline-grid; place-items: center; }
   .nav-links {
@@ -239,32 +194,23 @@ textarea:focus-visible {
     padding: .6rem 1.5rem 1rem;
     background: #fff;
     border-bottom: 1px solid #d8e3e8;
-    box-shadow: 0 10px 20px rgba(0,51,102,.18);
+    box-shadow: 0 10px 20px rgba(0,51,102,.08);
   }
   .nav-links.show { display: flex; }
-  .nav-links a { 
-    display: block; 
-    padding: .65rem .25rem; 
-    color: var(--color-blue); 
-  }
-  .nav-links a:hover, 
-  .nav-links a[aria-current="page"] { 
-    color: var(--color-primary); 
-    border-color: var(--color-primary); 
-  }
+  .nav-links a { display: block; padding: .65rem .25rem; }
 }
+
 
 /* ========================================
    SHARED SUBPAGE INTRO BANNER
 ======================================== */
-
 .subpage-intro {
   position: relative;
   overflow: hidden;
   min-height: clamp(300px, 32vw, 360px);
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #e6f1f8, #f5fbff); /* more blue-tinted */
+  background: linear-gradient(135deg, #e8f1ee, #e6f1f8);
   text-align: center;
 }
 
@@ -297,12 +243,12 @@ textarea:focus-visible {
 
 .subpage-intro .section-inner {
   position: relative;
-  max-width: 1000px;
+  max-width: 1000;
 }
 
 .subpage-intro .eyebrow {
   margin: 0 0 .8rem;
-  color: var(--color-primary); /* green accent */
+  color: var(--color-primary);
   font-size: .76rem;
   font-weight: 750;
   letter-spacing: .2em;
@@ -323,14 +269,10 @@ textarea:focus-visible {
   line-height: 1.75;
 }
 
-/* ========================================
-   BUTTONS & CARDS
-======================================== */
-
 .btn-primary {
   display: inline-block;
   padding: .75rem 1.5rem;
-  background: var(--color-blue);      /* blue main */
+  background: var(--color-primary);
   color: #fff;
   text-decoration: none;
   border-radius: 999px;
@@ -342,24 +284,8 @@ textarea:focus-visible {
 }
 
 .btn-primary:hover { 
-  background: #00528f;               /* slightly lighter blue hover */
+  background: var(--color-dark);
   transform: translateY(-2px); 
-}
-
-/* optional secondary button using green */
-.btn-secondary {
-  display: inline-block;
-  padding: .75rem 1.5rem;
-  background: #fff;
-  color: var(--color-blue);
-  border-radius: 999px;
-  border: 2px solid var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  cursor: pointer;
-}
-.btn-secondary:hover {
-  background: var(--color-bg-alt);
 }
 
 .card {
@@ -372,10 +298,6 @@ textarea:focus-visible {
 .card h3 { 
   margin-top: 0; 
 }
-
-/* ========================================
-   SUBPAGE HEADER
-======================================== */
 
 .subpage-header {
   text-align: center;
@@ -403,29 +325,19 @@ hr.divider {
   height: 2px;             
   margin: 3rem auto;            
   max-width: 60%;            
-  background: var(--color-blue);  
+  background: var(--color-primary);  
   border-radius: 2px;         
   opacity: 0.8;                  
 }
 
-.subpage-header::after {  
-  content: "";  
-  display: block;  
-  width: 34px;  
-  height: 30px;  
-  margin: 1rem auto 0;  
-  background-color: var(--color-primary);  /* green shell accent */
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'%3E%3Cpath d='M32 51C21 51 11 47 6 41C4 38 5 34 9 34C7 28 9 24 14 24C13 18 17 15 22 17C23 11 27 8 32 13C37 8 41 11 42 17C47 15 51 18 50 24C55 24 57 28 55 34C59 34 60 38 58 41C53 47 43 51 32 51ZM32 14V46M23 18L28 46M14 25L24 46M41 18L36 46M50 25L40 46M8 35L20 46M56 35L44 46' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;  
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'%3E%3Cpath d='M32 51C21 51 11 47 6 41C4 38 5 34 9 34C7 28 9 24 14 24C13 18 17 15 22 17C23 11 27 8 32 13C37 8 41 11 42 17C47 15 51 18 50 24C55 24 57 28 55 34C59 34 60 38 58 41C53 47 43 51 32 51ZM32 14V46M23 18L28 46M14 25L24 46M41 18L36 46M50 25L40 46M8 35L20 46M56 35L44 46' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;  
-}  
-
-/* ========================================
-   REDUCED MOTION
-======================================== */
-
-@media (prefers-reduced-motion: reduce) { 
-  *, *::before, *::after { 
-    scroll-behavior: auto !important; 
-    transition-duration: .01ms !important; 
-  } 
+.subpage-header::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 30px;
+  margin: 1rem auto 0;
+  background-color: var(--color-primary);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'%3E%3Cpath d='M32 51C21 51 11 47 6 41C4 38 5 34 9 34C7 28 9 24 14 24C13 18 17 15 22 17C23 11 27 8 32 13C37 8 41 11 42 17C47 15 51 18 50 24C55 24 57 28 55 34C59 34 60 38 58 41C53 47 43 51 32 51ZM32 14V46M23 18L28 46M14 25L24 46M41 18L36 46M50 25L40 46M8 35L20 46M56 35L44 46' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'%3E%3Cpath d='M32 51C21 51 11 47 6 41C4 38 5 34 9 34C7 28 9 24 14 24C13 18 17 15 22 17C23 11 27 8 32 13C37 8 41 11 42 17C47 15 51 18 50 24C55 24 57 28 55 34C59 34 60 38 58 41C53 47 43 51 32 51ZM32 14V46M23 18L28 46M14 25L24 46M41 18L36 46M50 25L40 46M8 35L20 46M56 35L44 46' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
 }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
