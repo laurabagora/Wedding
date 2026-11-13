@@ -110,6 +110,7 @@
         : result.status === 'expired'
           ? 'Your invitation session expired. Please find your invitation again before submitting.'
           : 'We couldn’t complete that request. Please try again or contact Laura or Nathan.';
+      if (result.detail) request.error.textContent += ' [' + result.detail + ']';
       request.error.hidden = false;
     }
   });
