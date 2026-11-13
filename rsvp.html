@@ -51,24 +51,25 @@
             <p>For venue, attire, and arrival information, visit our <a href="details.html">guest details</a> page.</p>
           </aside>
           <div class="rsvp-container">
-            <form id="rsvp-form" class="rsvp-form" method="post" target="rsvp-result-frame">
-              <p class="rsvp-eyebrow">A little note back</p>
-              <h2 id="rsvp-heading">Your RSVP</h2>
-              <p class="form-intro">Please fill out one response for your group.</p>
-              <div class="form-name-grid">
-                <div class="form-row"><label for="first-name">First Name</label><input type="text" id="first-name" name="firstName" autocomplete="given-name" required></div>
-                <div class="form-row"><label for="last-name">Last Name</label><input type="text" id="last-name" name="lastName" autocomplete="family-name" required></div>
-              </div>
-              <div class="form-row"><label for="attendance">Will you be attending?</label>
-                <select id="attendance" name="attendance" required><option value="">Please select</option><option value="Yes">Yes, I’ll be there</option><option value="No">Sorry, I can’t make it</option></select>
-              </div>
-              <div class="form-row"><label for="guests">Number of additional guests attending</label>
-                <select id="guests" name="guests" required><option value="1">0</option><option value="2">1</option><option value="3">2</option><option value="4">3</option><option value="5">4</option><option value="6">5</option></select>
-              </div>
-              <div id="additional-guests"></div>
-              <div class="form-row"><label for="message">Message for Nathan &amp; Laura <span class="optional">(optional)</span></label><textarea id="message" name="message" rows="4" placeholder="Leave us a note!"></textarea></div>
-              <button type="submit" class="btn-primary submit-btn"><span class="button-text">Send My RSVP</span><span class="spinner" aria-hidden="true"></span></button>
-              <p class="form-error" id="form-error" role="alert" hidden>Something went wrong. Please try again.</p>
+            <noscript><p class="form-error">Please enable JavaScript to find your invitation, or contact Laura or Nathan to RSVP.</p></noscript>
+            <form id="invitation-form" class="rsvp-form">
+              <p class="rsvp-eyebrow">Your invitation</p>
+              <h2 id="rsvp-heading">Find your invitation</h2>
+              <p class="form-intro">Enter your first and last name to find your party. You can reply for everyone on your invitation.</p>
+              <div class="form-row"><label for="guest-name">Your full name</label><input id="guest-name" name="fullName" autocomplete="name" maxlength="120" required aria-describedby="lookup-help"></div>
+              <p id="lookup-help">Please use the name on your invitation.</p>
+              <button class="btn-primary submit-btn" type="submit"><span>Find my invitation</span><span class="spinner" aria-hidden="true"></span></button>
+              <p id="lookup-error" class="form-error" role="alert" hidden></p>
+            </form>
+            <form id="rsvp-form" class="rsvp-form" hidden>
+              <p class="rsvp-eyebrow">We found your party!</p>
+              <h2 id="party-heading" tabindex="-1">Who’s joining us?</h2>
+              <p class="form-intro">Choose accepts or declines for each person, then send one RSVP for your party.</p>
+              <div id="party-members"></div>
+              <div class="form-row"><label for="message">Message for Nathan &amp; Laura <span class="optional">(optional)</span></label><textarea id="message" name="message" rows="4" maxlength="2000" placeholder="Leave us a note!"></textarea></div>
+              <button type="submit" class="btn-primary submit-btn"><span>Submit RSVP</span><span class="spinner" aria-hidden="true"></span></button>
+              <button type="button" id="change-invitation" class="text-button">Find a different invitation</button>
+              <p class="form-error" id="form-error" role="alert" hidden></p>
             </form>
             <iframe name="rsvp-result-frame" id="rsvp-result-frame" title="RSVP submission response" hidden></iframe>
             <div id="thank-you-message" class="thank-you-card" hidden role="status" aria-live="polite"></div>
@@ -87,123 +88,6 @@
       </div>
     </footer>
   
-    <script>
-    // Replace this value with the /exec URL of the new Apps Script deployment.
-    const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzdu74B4A7SSOQ7yzxcDJq_3cValrHQbfJOjFZVwShdMS7j6lDlGkJpkrUtRX1ZvYHB3w/exec';
-    const form = document.getElementById('rsvp-form');
-    const thankYou = document.getElementById('thank-you-message');
-    const guestSelect = document.getElementById('guests');
-    const additionalGuests = document.getElementById('additional-guests');
-    const attendanceSelect = document.getElementById('attendance');
-    const errorEl = document.getElementById('form-error');
-    const submitButton = form.querySelector('.submit-btn');
-    const navToggle = document.querySelector('.nav-toggle');
-    const navList = document.getElementById('primary-nav');
-    let pendingId = null;
-    let pendingTimer = null;
-
-    navToggle.addEventListener('click', () => {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      navToggle.setAttribute('aria-label', expanded ? 'Open menu' : 'Close menu');
-      navList.classList.toggle('show', !expanded);
-    });
-
-    function createGuestFields(total) {
-      additionalGuests.replaceChildren();
-      for (let i = 2; i <= total; i++) {
-        const card = document.createElement('div');
-        card.className = 'guest-card';
-        card.innerHTML = `<h3>Additional Guest ${i - 1}</h3>
-          <div class="form-row"><label for="guest${i}FirstName">First Name</label>
-            <input type="text" id="guest${i}FirstName" name="guest${i}FirstName" required></div>
-          <div class="form-row"><label for="guest${i}LastName">Last Name</label>
-            <input type="text" id="guest${i}LastName" name="guest${i}LastName" required></div>`;
-        additionalGuests.appendChild(card);
-      }
-    }
-    guestSelect.addEventListener('change', () => createGuestFields(Number(guestSelect.value)));
-    attendanceSelect.addEventListener('change', () => {
-      const attending = attendanceSelect.value === 'Yes';
-      guestSelect.closest('.form-row').hidden = !attending;
-      additionalGuests.hidden = !attending;
-      if (!attending) { guestSelect.value = '1'; createGuestFields(1); }
-    });
-
-    function setBusy(busy) {
-      submitButton.disabled = busy;
-      submitButton.classList.toggle('loading', busy);
-    }
-    function fail(message) {
-      clearTimeout(pendingTimer);
-      pendingId = null;
-      setBusy(false);
-      errorEl.textContent = message;
-      errorEl.hidden = false;
-    }
-    function showResult(status, attendance) {
-      clearTimeout(pendingTimer);
-      pendingId = null;
-      setBusy(false);
-      form.hidden = true;
-      thankYou.hidden = false;
-      if (status === 'duplicate') {
-        thankYou.innerHTML = `<p class="rsvp-eyebrow">Already on our list</p>
-          <h2>We have an RSVP under this name</h2>
-          <p>If you need to change your response, please contact Laura or Nathan.</p>
-          <button type="button" class="btn-primary another-rsvp">Submit Another RSVP</button>`;
-      } else if (attendance === 'No') {
-        thankYou.innerHTML = `<p class="rsvp-eyebrow">Thank you for replying</p>
-          <h2>We'll miss you!</h2><p>We appreciate you letting us know, and we'll be thinking of you on our big day.</p>
-          <button type="button" class="btn-primary another-rsvp">Submit Another RSVP</button>`;
-      } else {
-        thankYou.innerHTML = `<p class="rsvp-eyebrow">Your response is in</p>
-          <h2>Thank you for your RSVP!</h2><p>We can't wait to celebrate with you in Cocoa Beach.</p>
-          <button type="button" class="btn-primary another-rsvp">Submit Another RSVP</button>`;
-      }
-      thankYou.querySelector('button').addEventListener('click', () => {
-        form.reset();
-        createGuestFields(1);
-        guestSelect.closest('.form-row').hidden = false;
-        additionalGuests.hidden = false;
-        errorEl.hidden = true;
-        thankYou.hidden = true;
-        form.hidden = false;
-        document.getElementById('first-name').focus();
-      });
-      thankYou.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      thankYou.querySelector('button').focus({ preventScroll: true });
-    }
-
-    window.addEventListener('message', event => {
-      const host = (() => { try { return new URL(event.origin).hostname; } catch { return ''; } })();
-      if (!['script.google.com', 'script.googleusercontent.com'].includes(host) && !host.endsWith('.googleusercontent.com')) return;
-      const result = event.data;
-      if (!result || result.source !== 'laura-nathan-rsvp' || result.requestId !== pendingId) return;
-      if (result.status === 'saved' || result.status === 'duplicate') showResult(result.status, result.attendance);
-      else fail('We could not save your RSVP. Please check your details and try again.');
-    });
-
-    form.addEventListener('submit', event => {
-      event.preventDefault();
-      if (pendingId) return;
-      if (!RSVP_ENDPOINT.startsWith('https://script.google.com/macros/s/') || !RSVP_ENDPOINT.endsWith('/exec')) {
-        fail('RSVP setup is in progress. Please try again later.');
-        return;
-      }
-      errorEl.hidden = true;
-      pendingId = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random());
-      const requestField = document.createElement('input');
-      requestField.type = 'hidden';
-      requestField.name = 'requestId';
-      requestField.value = pendingId;
-      form.querySelector('[name="requestId"]')?.remove();
-      form.appendChild(requestField);
-      form.action = RSVP_ENDPOINT;
-      setBusy(true);
-      pendingTimer = setTimeout(() => fail('We could not confirm your RSVP. Please try again or contact us.'), 60000);
-      HTMLFormElement.prototype.submit.call(form);
-    });
-  </script>
+    <script src="js/rsvp.js" defer></script>
   </body>
 </html>
