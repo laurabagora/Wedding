@@ -68,7 +68,7 @@
       const row = document.createElement('div'); row.className = 'form-row';
       const label = document.createElement('label'); label.htmlFor = `member-${index}`; label.textContent = member.name;
       const select = document.createElement('select'); select.id = label.htmlFor; select.name = member.id; select.required = true;
-      for (const [value, text] of [['', 'Choose a response'], ['Yes', 'Joyfully accepts'], ['No', 'Regretfully declines']]) {
+      for (const [value, text] of [['', 'Choose a response'], ['Yes', 'Yes, I’ll be there'], ['No', 'No, I can’t make it']]) {
         const option = document.createElement('option'); option.value = value; option.textContent = text; select.append(option);
       }
       select.value = member.attendance || '';
@@ -98,10 +98,10 @@
     const request = finish();
     if (request.action === 'lookup' && result.status === 'found' && result.party?.members?.length) {
       showParty(result);
-    } else if (request.action === 'rsvp' && result.status === 'saved') {
-      form.hidden = true; thanks.hidden = false; thanks.replaceChildren();
-      const title = document.createElement('h2'); title.textContent = 'Thank you for your RSVP!';
-      const note = document.createElement('p'); note.textContent = 'Your responses have been saved for everyone on your invitation. To make a change, find your invitation again.';
+    } else if (result.status === 'duplicate' || (request.action === 'rsvp' && result.status === 'saved')) {
+      lookup.hidden = true; form.hidden = true; thanks.hidden = false; thanks.replaceChildren();
+      const title = document.createElement('h2'); title.textContent = result.status === 'duplicate' ? 'We already have your party’s RSVP.' : 'Thank you for your RSVP!';
+      const note = document.createElement('p'); note.textContent = 'Your party’s response is on our list. If your plans change, please contact Laura or Nathan.';
       const button = document.createElement('button'); button.type = 'button'; button.className = 'btn-primary another-rsvp'; button.textContent = 'Back to invitation search'; button.addEventListener('click', reset);
       thanks.append(title, note, button); button.focus();
     } else {

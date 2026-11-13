@@ -6,7 +6,7 @@
 .story-jump span { margin-left: .4rem; }
 .meet-section, .collage-section { background: #fff; text-align: center; }
 .meet-section h2 { margin-bottom: 2.4rem; }
-.bios { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem; text-align: left; }
+.bios { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem; text-align: center; }
 .bio { display: flex; flex-direction: column; align-items: center; padding: 2rem; background: #f4f8f7; border: 1px solid #e0e9e7; border-radius: 18px; }
 .bio-photo { width: 145px; height: 145px; object-fit: cover; border: 6px solid #fff; border-radius: 50%; box-shadow: var(--shadow); }
 .bio-copy { width: 100%; }

@@ -57,14 +57,13 @@
               <h2 id="rsvp-heading">Find your invitation</h2>
               <p class="form-intro">Enter your first and last name to find your party. You can reply for everyone on your invitation.</p>
               <div class="form-row"><label for="guest-name">Your full name</label><input id="guest-name" name="fullName" autocomplete="name" maxlength="120" required aria-describedby="lookup-help"></div>
-              <p id="lookup-help">Please use the name on your invitation.</p>
               <button class="btn-primary submit-btn" type="submit"><span>Find my invitation</span><span class="spinner" aria-hidden="true"></span></button>
               <p id="lookup-error" class="form-error" role="alert" hidden></p>
             </form>
             <form id="rsvp-form" class="rsvp-form" hidden>
               <p class="rsvp-eyebrow">We found your party!</p>
               <h2 id="party-heading" tabindex="-1">Who’s joining us?</h2>
-              <p class="form-intro">Choose accepts or declines for each person, then send one RSVP for your party.</p>
+              <p class="form-intro">Choose Yes or No for each person, then send one RSVP for your party.</p>
               <div id="party-members"></div>
               <div class="form-row"><label for="message">Message for Nathan &amp; Laura <span class="optional">(optional)</span></label><textarea id="message" name="message" rows="4" maxlength="2000" placeholder="Leave us a note!"></textarea></div>
               <button type="submit" class="btn-primary submit-btn"><span>Submit RSVP</span><span class="spinner" aria-hidden="true"></span></button>
