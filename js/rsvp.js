@@ -3,7 +3,6 @@
   const lookup = document.getElementById('invitation-form');
   const form = document.getElementById('rsvp-form');
   const thanks = document.getElementById('thank-you-message');
-  const frame = document.getElementById('rsvp-result-frame');
   let party = null;
   let pending = null;
   const toggle = document.querySelector('.nav-toggle');
@@ -21,35 +20,34 @@
   function finish() {
     const request = pending;
     clearTimeout(request.timer);
-    request.transport.remove();
     busy(request.activeForm, false);
     pending = null;
     return request;
   }
-  function send(action, values, activeForm, error) {
+  async function send(action, values, activeForm, error) {
     if (pending) return;
     error.hidden = true;
     const requestId = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`;
-    const transport = document.createElement('form');
-    transport.method = 'post';
-    transport.action = endpoint;
-    transport.target = frame.name;
-    transport.hidden = true;
-    for (const [name, value] of Object.entries({action, requestId, ...values})) {
-      const input = document.createElement('input');
-      input.type = 'hidden'; input.name = name; input.value = value;
-      transport.append(input);
-    }
-    document.body.append(transport);
+    const controller = new AbortController();
     busy(activeForm, true);
-    pending = {requestId, action, transport, activeForm, error, timer: setTimeout(() => {
-      finish();
+    pending = {requestId, action, activeForm, error, timer: setTimeout(() => controller.abort(), 30000)};
+    try {
+      // A plain form-encoded POST avoids a cross-origin preflight.
+      const response = await fetch(endpoint, {
+        method: 'POST', body: new URLSearchParams({action, requestId, format: 'json', ...values}),
+        credentials: 'omit', redirect: 'follow', signal: controller.signal
+      });
+      if (!response.ok) throw new Error('Request failed');
+      const result = await response.json();
+      if (result?.source !== 'laura-nathan-rsvp' || result.requestId !== requestId) throw new Error('Unexpected reply');
+      handleResult(finish(), result);
+    } catch {
+      if (pending?.requestId === requestId) finish();
       error.textContent = action === 'lookup'
         ? 'We couldn’t reach the invitation list. Please try again or contact Laura or Nathan.'
         : 'We couldn’t confirm your RSVP. You can safely try again, or contact Laura or Nathan.';
       error.hidden = false;
-    }, 60000)};
-    transport.submit();
+    }
   }
   function reset() {
     party = null;
@@ -89,13 +87,7 @@
     send('rsvp', {token: party.token, responses: JSON.stringify(responses), message: document.getElementById('message').value.trim()}, form, document.getElementById('form-error'));
   });
   document.getElementById('change-invitation').addEventListener('click', reset);
-  window.addEventListener('message', event => {
-    let host;
-    try { host = new URL(event.origin).hostname; } catch { return; }
-    if (host !== 'script.google.com' && host !== 'script.googleusercontent.com' && !host.endsWith('.googleusercontent.com')) return;
-    const result = event.data;
-    if (!pending || !result || result.source !== 'laura-nathan-rsvp' || result.requestId !== pending.requestId) return;
-    const request = finish();
+  function handleResult(request, result) {
     if (request.action === 'lookup' && result.status === 'found' && result.party?.members?.length) {
       showParty(result);
     } else if (result.status === 'duplicate' || (request.action === 'rsvp' && result.status === 'saved')) {
@@ -113,5 +105,5 @@
       if (result.detail) request.error.textContent += ' [' + result.detail + ']';
       request.error.hidden = false;
     }
-  });
+  }
 })();
